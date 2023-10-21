@@ -1,0 +1,14 @@
+{
+  "name": "know-wave",
+  "version": "1.0.0",
+  "description": "knowledge&opinion sharing fact checked",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kanhai Raval",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
