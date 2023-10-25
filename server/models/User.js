@@ -1,5 +1,5 @@
 const {Schema, model} = require('mongoose');
-const bcrypt = require('brcypt');
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
     firstName: {
@@ -32,6 +32,9 @@ const userSchema = new Schema({
     dOfb: {
         type: Date,
         required: true,
+    },
+    profilePicture: {
+        type: String,
     }
 });
 
