@@ -1,5 +1,8 @@
-const typeDefs = `
+const { gql } = require("apollo-server-express");
+
+const typeDefs = gql`
 type User {
+    _id: ID!
     firstName: String!
     lastName: String!
     userName: String!
@@ -10,6 +13,7 @@ type User {
 }
 
 type Category {
+    _id: ID!
     categoryName: String!
     description: String
 }
@@ -20,24 +24,24 @@ enum FactOpinion {
 }
 
 type Articles {
+    _id: ID!
     title: String!
     content: String!
-    author: User!
+    author(user: ID): User!
     publicationDate: String
     isFact: FactOpinion!
     isOpinion: FactOpinion
     siteSources: [String]
     articleImage: String
-    _id: ID!
 }
 
 type Auth {
-    token: String!
+    token: ID!
     user: User
 }
 
 type Query {
-    articles(category: String!): [Articles]
+    articles(category: ID!): [Articles]
 }
 
 type Mutation {
