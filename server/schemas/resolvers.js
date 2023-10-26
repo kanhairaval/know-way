@@ -54,22 +54,49 @@ const resolvers = {
                 const user = await User.findOne({ email });
 
                 if (!user) {
-                    throw AuthenticationError;
+                    throw AuthenticationError('User not found.');
                 }
 
                 const correctPw = await user.isCorrectPassword(password);
 
                 if (!correctPw) {
-                    throw AuthenticationError;
+                    throw AuthenticationError('Invalid password.');
                 }
 
                 const token = signToken(user);
 
                 return { token, user };
             } catch (err) {
-                throw new Error('Failed to sign up.');
+                throw new Error('Login failed.');
             }
         },
+
+        createArticle: async (parent, { title, content, author, isFact, isOpinion, siteSources, articleImage }) => {
+            try {
+                const newArtcile = await Articles.create({ title, content, author, isFact, isOpinion, siteSources, articleImage });
+                return newArtcile;
+            } catch (err) {
+                throw new Error('Failed to create an article.');
+            }
+        },
+
+        updateArtcile: async (parent, { _id, title, content, siteSources, articleImage }) => {
+            try {
+                const updatedArticle = await Articles.findByIdAndUpdate(_id, { title, content, siteSources, articleImage }, { new: true });
+                return updatedArticle;
+            } catch (err) {
+                throw new Error('Failed to update article.');
+            }
+        },
+
+        deleteArtcile: async (parent, { _id }) => {
+            try {
+                const deletedArticle = await Articles.findByIdAndDelete({ _id });
+                return deletedArticle;
+            } catch (err) {
+                throw new Error('Failed to delete article.');
+            }
+        }
     }
 };
 
