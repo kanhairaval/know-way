@@ -4,9 +4,9 @@ const { AuthenticationError } = require('apollo-server');
 
 const resolvers = {
     Query: {
-        articles: async(parent, { categoryName }) => {
+        articles: async(parent, { category }) => {
             try {
-                const categoryArticles = await Articles.find({ categoryName });
+                const categoryArticles = await Articles.find({ category });
 
                 await Articles.populate(categoryArticles, 'author');
 
@@ -18,9 +18,21 @@ const resolvers = {
                     isOpinion: article.isOpinion,
                 }));
 
-                return categoryArticles;
+                return categoryArticlesList;
             } catch (err) {
                 throw new Error('Failed to fetch articles.');
+            }
+        },
+
+        article: async(parent, { title }) => {
+            try {
+                const singleArticle = await Articles.findOne({ title });
+
+                await Articles.populate(singleArticle, 'author');
+
+                return singleArticle;
+            } catch (err) {
+                throw new Error('Failed to fetch article');
             }
         },
     },
