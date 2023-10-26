@@ -1,5 +1,5 @@
 const { User, Articles, Category } = require('../models');
-const { signToken, authMiddleware } = require('../utils');
+const { signToken, authMiddleware } = require('../utils/authmiddleware');
 const { AuthenticationError } = require('apollo-server');
 
 const resolvers = {
@@ -36,6 +36,16 @@ const resolvers = {
             }
         },
     },
+
+    Mutation: {
+        addUser: async (parent, { firstName, lastNAme, userName, email, password, dOfb, profilePicture }) => {
+            try {
+                const newUser = await User.create({ firstName, lastNAme, userName, email, password, dOfb, profilePicture });
+            } catch (err) {
+                throw new Error('Failed to sign up.');
+            }
+        },
+    }
 };
 
 module.exports = resolvers;
