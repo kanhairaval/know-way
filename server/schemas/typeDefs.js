@@ -41,7 +41,7 @@ type Auth {
 }
 
 type Query {
-    articles(category: ID!): [Articles]
+    articles(categoryName: String!): [Articles]
 }
 
 type Mutation {
