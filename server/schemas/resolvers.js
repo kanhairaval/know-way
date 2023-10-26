@@ -71,31 +71,46 @@ const resolvers = {
             }
         },
 
-        createArticle: async (parent, { title, content, author, isFact, isOpinion, siteSources, articleImage }) => {
+        createArticle: async (parent, { title, content, author, isFact, isOpinion, siteSources, articleImage }, context) => {
+
+            if (context.user) {
             try {
                 const newArtcile = await Articles.create({ title, content, author, isFact, isOpinion, siteSources, articleImage });
                 return newArtcile;
             } catch (err) {
                 throw new Error('Failed to create an article.');
             }
+        } else {
+            throw new AuthenticationError('Authentication required to create article.')
+        }
         },
 
-        updateArtcile: async (parent, { _id, title, content, siteSources, articleImage }) => {
+        updateArtcile: async (parent, { _id, title, content, siteSources, articleImage }, context) => {
+
+            if (context.user) {
             try {
                 const updatedArticle = await Articles.findByIdAndUpdate(_id, { title, content, siteSources, articleImage }, { new: true });
                 return updatedArticle;
             } catch (err) {
                 throw new Error('Failed to update article.');
             }
+        } else {
+            throw new AuthenticationError('Authentication required to update article.')
+        }
         },
 
-        deleteArtcile: async (parent, { _id }) => {
+        deleteArtcile: async (parent, { _id }, context) => {
+
+            if (context.user) {
             try {
                 const deletedArticle = await Articles.findByIdAndDelete({ _id });
                 return deletedArticle;
             } catch (err) {
                 throw new Error('Failed to delete article.');
             }
+        } else {
+            throw new AuthenticationError('Authentication required to delete article.')
+        }
         }
     }
 };
