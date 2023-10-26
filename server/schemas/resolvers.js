@@ -41,6 +41,31 @@ const resolvers = {
         addUser: async (parent, { firstName, lastNAme, userName, email, password, dOfb, profilePicture }) => {
             try {
                 const newUser = await User.create({ firstName, lastNAme, userName, email, password, dOfb, profilePicture });
+                const token = signToken(newUser);
+
+                return { token, newUser };
+            } catch (err) {
+                throw new Error('Failed to sign up.');
+            }
+        },
+
+        login: async (parent, { email, password }) => {
+            try {
+                const user = await User.findOne({ email });
+
+                if (!user) {
+                    throw AuthenticationError;
+                }
+
+                const correctPw = await user.isCorrectPassword(password);
+
+                if (!correctPw) {
+                    throw AuthenticationError;
+                }
+
+                const token = signToken(user);
+
+                return { token, user };
             } catch (err) {
                 throw new Error('Failed to sign up.');
             }
