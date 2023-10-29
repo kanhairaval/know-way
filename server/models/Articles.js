@@ -14,10 +14,10 @@ const articlesSchema = new Schema({
         maxlength: 1800,
     },
     author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
+        required: true,
     },
-    category: {
+    categoryName: {
         type:Schema.Types.ObjectId,
         ref: 'Category',
     },

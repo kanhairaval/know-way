@@ -7,7 +7,7 @@ const db = require('./config/connection');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 6001;
 const server = new ApolloServer({
     typeDefs,
     resolvers,

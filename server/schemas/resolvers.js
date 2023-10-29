@@ -1,14 +1,19 @@
-const { User, Articles, Category } = require('../models');
+const { User } = require('../models/User');
+const { Articles } = require('../models/Articles');
+const { Category } = require('../models/Category');
 const { signToken, authMiddleware } = require('../utils/authmiddleware');
 const { AuthenticationError } = require('apollo-server');
 
 const resolvers = {
     Query: {
-        articles: async(parent, { category }) => {
+        articles: async(parent, { categoryName }) => {
             try {
-                const categoryArticles = await Articles.find({ category });
 
-                await Articles.populate(categoryArticles, 'author');
+                const allArticles = await Articles.findAll().populate('user')
+                
+                // const categoryArticles = await Articles.find({ categoryName });
+
+                // await Articles.populate(categoryArticles, 'author');
 
                 const categoryArticlesList = categoryArticles.map((article) => ({
                     title: article.title,
@@ -28,7 +33,7 @@ const resolvers = {
             try {
                 const singleArticle = await Articles.findOne({ title });
 
-                await Articles.populate(singleArticle, 'author');
+                // await Articles.populate(singleArticle, 'author');
 
                 return singleArticle;
             } catch (err) {
@@ -38,10 +43,11 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { firstName, lastNAme, userName, email, password, dOfb, profilePicture }) => {
+        addUser: async (parent, { firstName, lastName, userName, email, password, dOfb, profilePicture }) => {
             try {
-                const newUser = await User.create({ firstName, lastNAme, userName, email, password, dOfb, profilePicture });
+                const newUser = await User.create({ firstName, lastName, userName, email, password, dOfb, profilePicture });
                 const token = signToken(newUser);
+                console.log(newUser);
 
                 return { token, newUser };
             } catch (err) {
@@ -64,7 +70,7 @@ const resolvers = {
                 }
 
                 const token = signToken(user);
-
+                console.log(user);
                 return { token, user };
             } catch (err) {
                 throw new Error('Login failed.');
@@ -78,14 +84,16 @@ const resolvers = {
                 const newArtcile = await Articles.create({ title, content, author, isFact, isOpinion, siteSources, articleImage });
                 return newArtcile;
             } catch (err) {
+                console.log(err);
                 throw new Error('Failed to create an article.');
             }
         } else {
+            console.log(err);
             throw new AuthenticationError('Authentication required to create article.')
         }
         },
 
-        updateArtcile: async (parent, { _id, title, content, siteSources, articleImage }, context) => {
+        updateArticle: async (parent, { _id, title, content, siteSources, articleImage }, context) => {
 
             if (context.user) {
             try {
@@ -99,7 +107,7 @@ const resolvers = {
         }
         },
 
-        deleteArtcile: async (parent, { _id }, context) => {
+        deleteArticle: async (parent, { _id }, context) => {
 
             if (context.user) {
             try {
