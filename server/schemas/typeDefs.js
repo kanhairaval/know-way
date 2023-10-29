@@ -54,7 +54,7 @@ type Mutation {
     addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!, dOfb: String!, profilePicture: String): Auth
     login(email: String!, password: String!): Auth
     createArticle(title: String!, content: String!, author: String, isFact: Boolean, isOpinion: Boolean, siteSources: [String], articleImage: String): Articles
-    updateArticle(_id: ID!, title: String!, content: String!, siteSources: [String], articleImage: String!): Articles
+    updateArticle(_id: ID!, title: String!, content: String!, siteSources: [String], articleImage: String): Articles
     deleteArticle(_id: ID!): Articles
 }
 `;
