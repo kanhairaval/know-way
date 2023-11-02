@@ -1,0 +1,33 @@
+.home-section {
+    position: relative;
+    height: 100vh;
+}
+
+.bg-image {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+  
+.home-logo {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 40%;
+    left: 50%;
+}
+
+.start-reading {
+    color: #3A4045;
+    text-decoration: #3A4045;
+    text-shadow: 2px 2px 4px #3A4045;
+    font-size: 35px;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    align-self: center;
+    white-space: nowrap;
+}
