@@ -48,7 +48,6 @@
     transition: width 0.4s ease-in-out;
   }
   
-  /* Optional: If you want the underline to disappear slowly when the mouse leaves */
   .nav-items::after {
     content: '';
     position: absolute;

@@ -15,11 +15,17 @@
     transform: translate(-50%, -50%);
     top: 40%;
     left: 50%;
+    max-width: 100%;
 }
+
+@media (max-width: 768px) {
+    .home-logo {
+      transform: translate(-50%, -50%) scale(0.8); /* Adjust the scale factor as needed */
+    }
+  }
 
 .start-reading {
     color: #3A4045;
-    text-decoration: #3A4045;
     text-shadow: 2px 2px 4px #3A4045;
     font-size: 35px;
     font-family: 'Varela Round';
@@ -28,7 +34,8 @@
     cursor: pointer;
     position: absolute;
     top: 50%;
-    left: 40%;
-    align-self: center;
+    left: 50%;
+    margin-top: 25px;
+    transform: translate(-50%, -50%);
     white-space: nowrap;
 }
