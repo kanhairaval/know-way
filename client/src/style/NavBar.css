@@ -43,12 +43,12 @@
     transition: width 0.4s ease-in-out;
   }
   
-  .nav-items:hover::before {
+.nav-items:hover::before {
     width: 100%;
     transition: width 0.4s ease-in-out;
   }
   
-  .nav-items::after {
+.nav-items::after {
     content: '';
     position: absolute;
     width: 0;
@@ -59,7 +59,7 @@
     transition: width 0.4s ease-in-out;
   }
   
-  .nav-items:hover::after {
+.nav-items:hover::after {
     width: 100%;
     transition: width 0.4s ease-in-out;
   }

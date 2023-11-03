@@ -1,0 +1,43 @@
+.about-us {
+    background-color: #3A4045;
+    color: white;
+    font-family: 'Varela Round';
+    padding: 20px;
+    text-align: left;
+}
+
+#about-logo {
+    width: 70px;
+    height: auto;
+    vertical-align: middle;
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+}

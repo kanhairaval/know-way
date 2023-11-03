@@ -20,7 +20,7 @@
 
 @media (max-width: 768px) {
     .home-logo {
-      transform: translate(-50%, -50%) scale(0.8); /* Adjust the scale factor as needed */
+      transform: translate(-50%, -50%) scale(0.8);
     }
   }
 
@@ -39,3 +39,35 @@
     transform: translate(-50%, -50%);
     white-space: nowrap;
 }
+
+.start-reading::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #3A4045;
+    bottom: 0;
+    left: 0;
+    transition: width 0.4s ease-in-out;
+  }
+  
+.start-reading:hover::before {
+    width: 100%;
+    transition: width 0.4s ease-in-out;
+  }
+  
+.start-reading::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #3A4045;
+    bottom: 0;
+    right: 0;
+    transition: width 0.4s ease-in-out;
+  }
+  
+.start-reading:hover::after {
+    width: 100%;
+    transition: width 0.4s ease-in-out;
+  }
