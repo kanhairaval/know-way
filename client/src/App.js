@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import About from './components/About';
 import Categories from './components/Categories';
+import Search from './components/Search';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" Component={Home}/>
           <Route path="/categories" Component={Categories}/>
+          <Route path="/search" Component={Search}/>
           <Route path="/login" Component={Login}/>
           <Route path="/register" Component={Register}/>
           <Route path="/about" Component={About}/>

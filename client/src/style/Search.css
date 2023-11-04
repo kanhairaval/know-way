@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3A4045;
+    padding: 35px 0;
+  }
+  
+input[type="search"] {
+    width: 40%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid white;
+    background: transparent;
+    color: white;
+  }
+
+input[type="search"]:focus {
+    outline: none;
+}
+
+.search-icon {
+    width: 30px;
+    height: 30px;
+}

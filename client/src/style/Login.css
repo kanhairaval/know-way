@@ -24,26 +24,26 @@
 }
 
 #greeting {
-    text-align: center; /* Center the text */
+    text-align: center;
     margin-top: 20px;
 }
 
 label {
-    display: block; /* Display labels as blocks to stack them */
+    display: block;
     margin-bottom: 10px;
 }
 
 input {
-    display: block; /* Display inputs as blocks to stack them */
+    display: block;
     border: 1px solid white;
     background-color: #3A4045;
-    width: 100%; /* Take full available width */
-    height: 40px; /* Adjust height as needed */
+    width: 100%;
+    height: 40px;
 }
 
 #email,
 #password {
-    margin-bottom: 20px; /* Add space between inputs */
+    margin-bottom: 20px;
 }
 
 #sign-in {
@@ -52,14 +52,14 @@ input {
     font-size: 22px;
     font-family: 'Varela Round';
     display: block;
-    width: 100%; /* Take full available width */
-    height: 40px; /* Adjust height as needed */
+    width: 100%;
+    height: 40px;
     border: none;
     cursor: pointer;
 }
 
 h3 {
-    text-align: center; /* Center the text */
+    text-align: center;
     color: #B5BFC8;
     margin-top: 20px;
 }
@@ -68,9 +68,9 @@ a {
     color: white;
 }
 
-/* Media query for screens smaller than 768px wide */
+
 @media (max-width: 768px) {
     .login-box {
-        width: 90%; /* Adjust width as needed for smaller screens */
+        width: 90%;
     }
 }
