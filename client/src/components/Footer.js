@@ -1,15 +1,16 @@
 import React from "react";
-import "../style/Footer.css"
+import { Link } from 'react-router-dom';
+import "../style/Footer.css";
 
 const Footer = () => {
-    return(
-        <section className = "footer">
-            <ul>
-                <li className = "footer-list">Contact Us</li>
-                <li className = "footer-list">Careers</li>
+    return (
+        <footer className = "footer">
+            <ul className = "footer-list">
+                <li className = "footer-items">Contact Us</li>
+                <li className = "footer-items">Careers</li>
             </ul>
-            <footer className="footer-copyright">© 2023 KnoWay. All rights reserved.</footer>
-        </section>
+            <p className = "footer-copyright">© 2023 KnoWay. All rights reserved.</p>
+        </footer>
     );
 };
 
