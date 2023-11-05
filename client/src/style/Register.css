@@ -3,7 +3,7 @@
     color: white;
     font-family: 'Varela Round';
     position: absolute;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     height: auto;
     top: 50%;
@@ -24,8 +24,7 @@
 }
 
 #greeting {
-    text-align: center;
-    margin-top: 20px;
+    margin-left: 42%;
 }
 
 .horizontal-fields {
@@ -35,7 +34,7 @@
 
 .horizontal-fields > div {
     flex: 1;
-    margin-right: 10px; /* Adjust spacing as needed */
+    margin-right: 10px;
 }
 
 label {
@@ -47,7 +46,7 @@ input {
     background-color: #3A4045;
     width: 100%;
     height: 40px;
-    color: white; /* Add text color */
+    color: white;
 }
 
 #date-of-birth {
@@ -79,10 +78,22 @@ a {
 
 @media (max-width: 768px) {
     .register-box {
-        width: 90%;
+        width: 95%;
+        padding: 20px;
     }
 }
 
 input:focus {
     outline: none;
+}
+
+@media (max-width: 768px) {
+    .horizontal-fields {
+        flex-direction: column;
+    }
+    
+    .horizontal-fields > div {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
