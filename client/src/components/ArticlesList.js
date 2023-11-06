@@ -10,7 +10,7 @@ const ArticlesList = () => {
             </div>
 
             <div className="articles-list">
-                <h2>Article Title</h2>
+                <h2 id = "article-title">Article Title</h2>
                 <div className = "details">
                 <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
                 </div>
