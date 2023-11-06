@@ -1,8 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
 .categories {
     display: flex;
     justify-content: space-evenly;

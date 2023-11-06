@@ -11,6 +11,7 @@ import About from './components/About';
 import Categories from './components/Categories';
 import Search from './components/Search';
 import CreateArticle from './components/CreateArticle';
+import ArticlesList from './components/ArticlesList';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -30,6 +31,7 @@ function App() {
           <Route path="/register" Component={Register}/>
           <Route path="/about" Component={About}/>
           <Route path="/createarticle" Component={CreateArticle}/>
+          <Route path="/articleslist" Component={ArticlesList}/>
         </Routes>
         <Footer/>
       </Router>
