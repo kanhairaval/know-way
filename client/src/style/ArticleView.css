@@ -1,0 +1,54 @@
+.view-article {
+    font-family: 'Varela Rounded';
+    color: #3A4045;
+    margin: 0%;
+    padding: 0%;
+    display: block;
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-details h2 {
+  margin-left: 40px;
+  color: #3A4045;
+  margin-top: 120px;
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+}
+
+.details {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+}
+
+.details h4 {
+  margin-left: 40px;
+  color: #3A4045;
+  margin-top: 10px;
+  padding-top: 0%;
+  margin-bottom: 0%;
+}
+
+.article-image-div {
+  display: flex;
+  margin-right: 25px;
+  height: 300px;
+  width: 450px;
+}
+
+#article-image {
+  margin-right: 25px;
+}
+
+#article-content{
+  color: #3A4045;
+  display: flex;
+  width: 100%;
+  margin-top: 40px;
+  margin-right: 0%;
+  padding-right: 0%;
+}

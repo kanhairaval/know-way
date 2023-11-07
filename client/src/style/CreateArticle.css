@@ -1,21 +1,24 @@
 .create-article {
-    margin-top: 5%;
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .q1 {
     color: #3A4045;
-    text-align: center;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
 }
 
-.q1-a1 {
+button .q1-a1 {
     display: flex;
-    justify-content: center;
-    gap: 20%;
 }
 
-#fact {
+#fact, #opinion {
     background-color: transparent;
     color: #3A4045;
     border: 1px solid #3A4045;
@@ -24,21 +27,7 @@
     padding: 10px 20px;
 }
 
-#fact:hover {
-    background-color: #3A4045;
-    color: white;
-}
-
-#opinion {
-    background-color: transparent;
-    color: #3A4045;
-    border: 1px solid #3A4045;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px 20px;
-}
-
-#opinion:hover {
+#fact:hover, #opinion:hover {
     background-color: #3A4045;
     color: white;
 }
@@ -84,14 +73,19 @@
     font-weight: bold;
 }
 
-.q3-a3 input {
+.q3-a3 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#title-input {
     background-color: transparent;
     color: #3A4045;
     font-size: 16px;
     border: 2px solid #3A4045;
     border-radius: 5px;
-    width: 30%;
-    margin: 0 auto;
+    width: 50%;
     height: 40px;
 }
 
@@ -102,7 +96,13 @@
     font-weight: bold;
 }
 
-.q4-a4 textarea {
+.q4-a4 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#article-text {
     display: flex;
     background-color: transparent;
     color: #3A4045;
@@ -110,7 +110,7 @@
     font-size: 20px;
     border: 2px solid #3A4045;
     border-radius: 5px;
-    width: 70%;
+    width: 50%;
     margin: 0 auto;
     height: 300px;
     outline: none;
@@ -124,14 +124,13 @@
     font-weight: bold;
 }
 
-.q5-a5 {
-    display: flex;
-    justify-content: center;
+#upload-image {
     background-color: transparent;
     color: #3A4045;
-    /* align-items: center; */
-    /* flex-direction: column; */
-    /* margin: 20px; */
+    padding: 0%;
+    border: 1px solid #3A4045;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .publish-btn {
@@ -172,5 +171,14 @@
 
     .publish-btn {
         padding: 10px 20px;
+    }
+
+    /* Additional styles to avoid overlapping with the navbar */
+    .q1 {
+        margin-top: 20px; /* Add some top margin to q1 */
+    }
+
+    .q2 {
+        margin-top: 20px; /* Add some top margin to q2 */
     }
 }

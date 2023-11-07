@@ -30,20 +30,20 @@ function CreateArticle() {
             <p className = "q3">Please, provide a title for your article:</p>
 
             <div className = "q3-a3">
-                <input type = "text" name = "article-title"/>
+                <input id = "title-input" type = "text" name = "article-title"/>
             </div>
 
             <p className = "q4">Please, share your article content here:</p>
 
             <div className = "q4-a4">
-                <textarea type = "text" name = "article-content"/>
+                <textarea id = "article-text" type = "text" name = "article-content"/>
             </div>
 
-            {/* <p className = "q5">Would you like to upload an image to accompany your article?</p>
+            <p className = "q5">Would you like to upload an image to accompany your article?</p>
 
-            <div className = "q5-a5">
-                <input type = "file" name = "article-image" accept = "image/*"/>
-            </div> */}
+            {/* <div className = "q5-a5"> */}
+                <input  id = "upload-image" type = "file" name = "article-image" accept = "image/*"/>
+            {/* </div> */}
 
             <button className = "publish-btn">Publish</button>
         </section>

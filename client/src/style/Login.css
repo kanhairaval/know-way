@@ -33,7 +33,7 @@ label {
     margin-bottom: 10px;
 }
 
-input {
+#email, #password {
     display: block;
     border: 1px solid white;
     background-color: #3A4045;

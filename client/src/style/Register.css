@@ -41,7 +41,7 @@ label {
     margin-bottom: 10px;
 }
 
-input {
+#first-name, #last-name, #user-name, #email, #password, #confirm-password, #date-of-birth {
     border: 1px solid white;
     background-color: #3A4045;
     width: 100%;
