@@ -1,15 +1,5 @@
 const { gql } = require("apollo-server-express");
 
-// input UserInput {
-//     firstName: String!
-//     lastName: String!
-//     userName: String!
-//     email: String!
-//     password: String!
-//     dOfb: String!
-//     profilePicture: String
-//   }  
-
 const typeDefs = gql`
 type User {
     _id: ID!
@@ -22,12 +12,6 @@ type User {
     profilePicture: String
 }
 
-type Category {
-    _id: ID!
-    categoryName: String!
-    description: String
-}
-
 type Articles {
     _id: ID!
     title: String!
@@ -38,6 +22,7 @@ type Articles {
     isOpinion: Boolean
     siteSources: [String]
     articleImage: String
+    categoryName: String!
 }
 
 type Auth {
@@ -51,10 +36,10 @@ type Query {
 }
 
 type Mutation {
-    addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!, dOfb: String!, profilePicture: String): Auth
+    addUser(firstName: String!, lastName: String!, userName: String!, email: String!, password: String!, dOfb: String!, profilePicture: String): String
     login(email: String!, password: String!): Auth
-    createArticle(title: String!, content: String!, author: String, isFact: Boolean, isOpinion: Boolean, siteSources: [String], articleImage: String): Articles
-    updateArticle(_id: ID!, title: String!, content: String!, siteSources: [String], articleImage: String): Articles
+    createArticle(title: String!, categoryName: String!, content: String!, author: String, isFact: Boolean, isOpinion: Boolean, siteSources: [String], articleImage: String): String
+    updateArticle(_id: ID!, title: String!, categoryName: String!, content: String!, siteSources: [String], articleImage: String): Articles
     deleteArticle(_id: ID!): Articles
 }
 `;

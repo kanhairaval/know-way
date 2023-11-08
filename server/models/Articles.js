@@ -1,6 +1,5 @@
 const {Schema, model} = require('mongoose');
 const User = require('./User');
-const Category = require('./Category');
 
 const articlesSchema = new Schema({
     title: {
@@ -11,15 +10,15 @@ const articlesSchema = new Schema({
         type: String,
         required: true,
         minlength: 600,
-        maxlength: 1800,
+        maxlength: 3000,
     },
     author: {
         type: String,
         required: true,
     },
     categoryName: {
-        type:Schema.Types.ObjectId,
-        ref: 'Category',
+        type:String,
+        required: true,
     },
     publicationDate: {
         type: Date,
