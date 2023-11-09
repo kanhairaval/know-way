@@ -4,31 +4,35 @@
     position: absolute;
     justify-content: space-evenly;
     background-color: #3A4045;
-    padding-bottom: 35px;
+    padding: 20px;
     z-index: 1;
 }
 
 .categories-container {
-    padding: 20px;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
 
 .categories-list {
     list-style: none;
-    display: flex;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .categories-items {
     font-family: 'Varela Round';
-    margin-right: 35px;
-    margin-top: 35px;
+    margin: 10px;
     font-size: 20px;
     font-weight: 600;
     color: white;
     cursor: pointer;
-    position: relative;
     text-decoration: none;
+    white-space: nowrap;
+    position: relative;
 }
 
 .categories-items::before {
