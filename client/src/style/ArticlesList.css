@@ -1,10 +1,15 @@
 .articles-view {
     font-family: 'Varela Rounded';
+    color: #3A4045;
 }
 
 .category-title {
     display: flex;
     justify-content: center;
+}
+
+#category-title {
+  color: #3A4045;
 }
 
 .articles-list h2 {

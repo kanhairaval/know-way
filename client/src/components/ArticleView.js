@@ -8,6 +8,7 @@ const ArticleView = () => {
             <div className = "article-header">
                     <div className="article-details">
                         <h2 id = "article-title">Will AI lead to terminator?</h2>
+                        <h4>Fact or opinion</h4>
                         <div className = "details">
                         <h4>Technology</h4> <h4>KanhaiRaval</h4> <h4>05/13/2042</h4>
                     </div>

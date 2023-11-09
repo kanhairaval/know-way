@@ -6,7 +6,7 @@ const ArticlesList = () => {
         <section className = "articles-view">
 
             <div className = "category-title">
-                <h1>Technology</h1>
+                <h1 id = "category-title">Technology</h1>
             </div>
 
             <div className="articles-list">
