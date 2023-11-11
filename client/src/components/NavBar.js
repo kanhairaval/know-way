@@ -1,28 +1,32 @@
 import React from "react";
-import RenderingCategories from "../utils/categoryEventHandler";
+import { useEventHandler } from "../utils/eventHandlersProvider";
 import Categories from "./Categories";
+import Search from "./Search";
 import { Link } from 'react-router-dom';
 import "../style/NavBar.css";
 
 const NavBar = () => {
 
-    const { showCategories, onStartCategoriesClick } = RenderingCategories();
+    const { showCategories, onStartCategoriesClick, showSearch, onSearchClick, onOtherClick } = useEventHandler();
 
     return (
         <div>
             <nav className = "nav-bar">
             <Link to = "/">
-                <img className = "nav-logo-img" alt = "logo" src = "nav-logo.png"/>
+                <img onClick = {onOtherClick} className = "nav-logo-img" alt = "logo" src = "nav-logo.png"/>
             </Link>
                 <ul className = "nav-list">
-                    <li onClick = {onStartCategoriesClick} className = "nav-items">Categories</li>
-                    <li className = "nav-items">Search</li>
-                    <li className = "nav-items">About</li>
-                    <li className = "nav-items">Log In</li>
-                    <li className = "nav-items">Register</li>
+                    <a><li onClick = {onStartCategoriesClick} className = "nav-items">Categories</li></a>
+                    <a><li onClick = {onSearchClick} className = "nav-items">Search</li></a>
+                    <Link to="/about">
+                        <li onClick = {onOtherClick} className="nav-items">About</li>
+                    </Link>
+                    <a><li onClick = {onOtherClick} className = "nav-items">Log In</li></a>
+                    <a><li className = "nav-items">Register</li></a>
                 </ul>
             </nav>
                 {showCategories && <Categories />}
+                {showSearch && <Search />}
         </div>
     );
 };

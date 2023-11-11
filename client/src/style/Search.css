@@ -1,14 +1,17 @@
 body {
     margin: 0;
     padding: 0;
+    z-index: 1;
   }
   
 .search {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100vw;
+    position: absolute;
+    justify-content: space-evenly;
     background-color: #3A4045;
-    padding: 35px 0;
+    padding: 40px;
+    z-index: 1;
   }
   
 input[type="search"] {
