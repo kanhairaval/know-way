@@ -34,3 +34,23 @@ export const RenderingCategoriesAndSearchProvider = ({ children }) => {
         </EventHandlerContext.Provider>
     );
 };
+
+export const RenderingRegisterModalProvider = ({ children }) => {
+    const [showRegisterModal, setShowRegisterModal] = useState(false);
+
+    const onClickOpenRegisterModal = () => {
+        console.log("Register clicked.")
+        setShowRegisterModal(true);
+    };
+
+    const onClickCloseRegisterModal = () => {
+        console.log("Close X clicked for closing register modal")
+        setShowRegisterModal(false);
+    };
+
+    return (
+        <EventHandlerContext.Provider value = {{ showRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
+            {children}
+        </EventHandlerContext.Provider>
+    );
+};

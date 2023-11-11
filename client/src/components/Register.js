@@ -1,10 +1,15 @@
 import React from "react";
 import "../style/Register.css";
+import { useEventHandler } from "../utils/eventHandlersProvider";
 
 const Login = () => {
+
+    const { onClickCloseRegisterModal } = useEventHandler();
+
     return (
+        <div className="modal-overlay">
         <section className="register-box">
-            <button id="close-btn">X</button>
+            <button onClick = {onClickCloseRegisterModal} id="close-btn">X</button>
             <h1 id="greeting">Join Us!</h1>
             <div className="horizontal-fields">
                 <div>
@@ -41,6 +46,7 @@ const Login = () => {
             <button id="register">Register</button>
             <h3>Already have an account? <a href="/Register">Sign In</a></h3>
         </section>
+        </div>
     );
 };
 

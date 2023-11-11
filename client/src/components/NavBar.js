@@ -2,12 +2,15 @@ import React from "react";
 import { useEventHandler } from "../utils/eventHandlersProvider";
 import Categories from "./Categories";
 import Search from "./Search";
+import Register from "./Register";
 import { Link } from 'react-router-dom';
 import "../style/NavBar.css";
 
 const NavBar = () => {
 
     const { showCategories, onStartCategoriesClick, showSearch, onSearchClick, onOtherClick } = useEventHandler();
+
+    const { showRegisterModal, onClickOpenRegisterModal } = useEventHandler();
 
     return (
         <div>
@@ -22,11 +25,12 @@ const NavBar = () => {
                         <li onClick = {onOtherClick} className="nav-items">About</li>
                     </Link>
                     <a><li onClick = {onOtherClick} className = "nav-items">Log In</li></a>
-                    <a><li className = "nav-items">Register</li></a>
+                    <a><li onClick = {onClickOpenRegisterModal} className = "nav-items">Register</li></a>
                 </ul>
             </nav>
                 {showCategories && <Categories />}
                 {showSearch && <Search />}
+                {showRegisterModal && <Register />}
         </div>
     );
 };
