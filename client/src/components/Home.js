@@ -1,12 +1,11 @@
 import React from "react";
 import Categories from "./Categories";
-import { Link } from "react-router-dom";
-import { useEventHandler } from "../utils/eventHandlersProvider";
+import { useCategoriesAndStartContext } from "../utils/eventHandlersProvider";
 import "../style/Home.css";
 
 const Home = () => {
 
-    const { showCategories, onStartCategoriesClick } = useEventHandler();
+    const { showCategories, onStartCategoriesClick } = useCategoriesAndStartContext();
 
     return (
         <section className = "home-section">

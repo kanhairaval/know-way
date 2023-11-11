@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState } from "react";
 
-const EventHandlerContext = createContext();
+const CategoriesAndStartContext = createContext();
 
-export const useEventHandler = () => {
-    return useContext(EventHandlerContext);
+export const useCategoriesAndStartContext = () => {
+    return useContext(CategoriesAndStartContext);
 };
 
 export const RenderingCategoriesAndSearchProvider = ({ children }) => {
@@ -29,28 +29,60 @@ export const RenderingCategoriesAndSearchProvider = ({ children }) => {
     };
 
     return (
-        <EventHandlerContext.Provider value = {{ showCategories, showSearch, onStartCategoriesClick, onSearchClick, onOtherClick }}>
+        <CategoriesAndStartContext.Provider value = {{ showCategories, showSearch, onStartCategoriesClick, onSearchClick, onOtherClick }}>
             {children}
-        </EventHandlerContext.Provider>
+        </CategoriesAndStartContext.Provider>
     );
+};
+
+const RegisterModalContext = createContext();
+
+export const useRegisterModalContext = () => {
+    return useContext(RegisterModalContext);
 };
 
 export const RenderingRegisterModalProvider = ({ children }) => {
     const [showRegisterModal, setShowRegisterModal] = useState(false);
 
     const onClickOpenRegisterModal = () => {
-        console.log("Register clicked.")
+        console.log("Register clicked.");
         setShowRegisterModal(true);
     };
 
     const onClickCloseRegisterModal = () => {
-        console.log("Close X clicked for closing register modal")
+        console.log("Close X clicked for closing register modal");
         setShowRegisterModal(false);
     };
 
     return (
-        <EventHandlerContext.Provider value = {{ showRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
+        <RegisterModalContext.Provider value = {{ showRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
             {children}
-        </EventHandlerContext.Provider>
+        </RegisterModalContext.Provider>
+    );
+};
+
+const LoginModalContext = createContext();
+
+export const useLoginModalContext = () => {
+    return useContext(LoginModalContext);
+};
+
+export const RenderingLoginModalProvider = ({ children }) => {
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
+    const onClickOpenLoginModal = () => {
+        console.log("Register clicked.")
+        setShowLoginModal(true);
+    };
+
+    const onClickCloseLoginModal = () => {
+        console.log("Close X clicked for closing register modal")
+        setShowLoginModal(false);
+    };
+
+    return (
+        <LoginModalContext.Provider value = {{ showLoginModal, onClickOpenLoginModal, onClickCloseLoginModal }}>
+            {children}
+        </LoginModalContext.Provider>
     );
 };

@@ -15,6 +15,7 @@ import ArticlesList from './components/ArticlesList';
 import ArticleView from './components/ArticleView';
 import { RenderingCategoriesAndSearchProvider } from './utils/eventHandlersProvider';
 import { RenderingRegisterModalProvider } from "./utils/eventHandlersProvider";
+import { RenderingLoginModalProvider } from "./utils/eventHandlersProvider";
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -27,6 +28,7 @@ function App() {
       <Router>
         <RenderingCategoriesAndSearchProvider>
         <RenderingRegisterModalProvider>
+        <RenderingLoginModalProvider>
           <NavBar/>
           {/* <LoggedInNavBar/> */}
           <Routes>
@@ -40,6 +42,7 @@ function App() {
             <Route path="/articleview" Component={ArticleView}/>
           </Routes>
           <Footer/>
+        </RenderingLoginModalProvider>
         </RenderingRegisterModalProvider>
         </RenderingCategoriesAndSearchProvider>
       </Router>
