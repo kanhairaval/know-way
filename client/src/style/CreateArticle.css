@@ -1,10 +1,11 @@
 .create-article {
-    margin-top: 0%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .q1 {
@@ -173,12 +174,15 @@ button .q1-a1 {
         padding: 10px 20px;
     }
 
-    /* Additional styles to avoid overlapping with the navbar */
-    .q1 {
-        margin-top: 20px; /* Add some top margin to q1 */
+    .create-article {
+        padding: 10px;
     }
 
-    .q2 {
-        margin-top: 20px; /* Add some top margin to q2 */
+    .q1,
+    .q2,
+    .q3,
+    .q4,
+    .q5 {
+        margin-top: 20px;
     }
-}
+};
