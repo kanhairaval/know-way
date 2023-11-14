@@ -10,22 +10,20 @@
     list-style: none;
     display: flex;
     padding: 0;
-    margin: 0;
-    align-self: flex-start;
-    margin-left: 25px;
+    margin: 50px 0 40px 0;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
 }
 
 .footer-items {
     font-family: 'Varela Round';
-    margin-right: 35px;
-    margin-top: 35px;
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     color: #3A4045;
-    text-shadow: 2px 2px 4px #3A4045;
     cursor: pointer;
     position: relative;
     text-decoration: none;
+    margin: 0 75px 0 75px;
 }
 
 .footer-items::before {
@@ -61,10 +59,9 @@
   }
 
 .footer-copyright {
-    display: block;
     font-family: 'Varela Round';
     font-size: 15px;
     font-weight: 300;
     color: #3A4045;
-    text-shadow: 2px 2px 4px #3A4045;
+    margin: 0 0 20px 0;
 }

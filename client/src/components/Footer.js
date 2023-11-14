@@ -6,6 +6,8 @@ const Footer = () => {
     return (
         <footer className = "footer">
             <ul className = "footer-list">
+                <li className = "footer-items">Terms & Conditions</li>
+                <li className = "footer-items">Privacy Policy</li>
                 <li className = "footer-items">Contact Us</li>
                 <li className = "footer-items">Careers</li>
             </ul>
