@@ -10,8 +10,8 @@ const Home = () => {
     return (
         <section className = "home-section">
             <img className = "bg-image" alt = "foggy-background" src = "home-page-bg-img.svg"/>
-            <img className = "home-logo" alt = "big-logo" src = "home-logo.png"/>
-            <button onClick = {onStartCategoriesClick} className = "start-reading">Start Reading</button>
+            <img className = "home-logo" alt = "big-logo" src = "homepage-logo.png"/>
+            <button onClick = {onStartCategoriesClick} className = "start-reading">Start Reading →</button>
             {showCategories && <Categories />}
         </section>
     );

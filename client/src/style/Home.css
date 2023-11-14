@@ -1,13 +1,13 @@
 .home-section {
     position: relative;
-    height: 100vh;
+    height: 90vh;
     width: 100vw;
 }
 
 .bg-image {
     position: absolute;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     object-fit: cover;
 }
   
@@ -27,16 +27,15 @@
 
 .start-reading {
     color: #3A4045;
-    text-shadow: 2px 2px 4px #3A4045;
-    font-size: 35px;
+    font-size: 40px;
+    font-weight: 500;
     font-family: 'Varela Round';
     border: 0;
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 75%;
     left: 50%;
-    margin-top: 25px;
     transform: translate(-50%, -50%);
     white-space: nowrap;
 }
