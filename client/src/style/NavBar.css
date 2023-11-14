@@ -6,7 +6,7 @@
 .nav-logo-img {
     height: 70px;
     width: 125px;
-    margin: 25px 0 15px 30px;
+    margin: 20px 0 5px 30px;
     display: flex;
     cursor: pointer;
 }
@@ -20,7 +20,7 @@
 
 .nav-items {
     font-family: 'Varela Round';
-    margin: 50px 40px 0 0;
+    margin: 55px 40px 0 0;
     font-size: 18px;
     font-weight: 600;
     color: #3A4045;
