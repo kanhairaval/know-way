@@ -1,10 +1,10 @@
 .categories {
     display: flex;
+    justify-content: center;
     width: 100vw;
     position: absolute;
-    justify-content: space-evenly;
     background-color: #3A4045;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     z-index: 1;
 }
 
@@ -25,8 +25,8 @@
 
 .categories-items {
     font-family: 'Varela Round';
-    margin: 10px;
-    font-size: 20px;
+    margin: 10px 30px 10px 30px;
+    font-size: 18px;
     font-weight: 600;
     color: white;
     cursor: pointer;

@@ -8,19 +8,19 @@ body {
     display: flex;
     width: 100vw;
     position: absolute;
-    justify-content: space-evenly;
+    justify-content: center;
     background-color: #3A4045;
-    padding: 40px;
+    padding: 25px 0 27px 0;
     z-index: 1;
   }
-  
+
 input[type="search"] {
+    color: white;
     width: 40%;
-    padding: 10px;
     border: none;
+    font-size: 20px;
     border-bottom: 2px solid white;
     background: transparent;
-    color: white;
   }
 
 input[type="search"]:focus {
