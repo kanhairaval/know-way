@@ -2,20 +2,25 @@
     background-color: #3A4045;
     color: white;
     font-family: 'Varela Round';
-    padding: 20px;
+    display: flex;
     text-align: left;
-    height: 100vh;
+}
+
+#aboutus-div {
+    margin: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
 }
 
 #about-logo {
-    width: 70px;
+    width: 75px;
     height: auto;
     vertical-align: middle;
 }
 
 h1 {
     font-size: 30px;
-    text-align: center;
     display: flex;
     align-items: center;
 }
