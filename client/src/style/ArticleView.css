@@ -37,6 +37,7 @@
 .article-image-div {
   flex: 1;
   margin-left: 20px;
+  margin-right: 20px;
   float: right;
   max-width: 50%;
 }
@@ -50,7 +51,7 @@
 #article-content {
   margin-top: 20px;
   margin-left: 2px;
-  margin-right: 0%;
+  margin-right: 20px;
   font-size: 1rem;
   line-height: 1.5;
   text-align: justify;

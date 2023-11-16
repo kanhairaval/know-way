@@ -37,10 +37,10 @@
     margin-bottom: 0%;
   }
 
-p {
+#article-info {
     margin-left: 40px;
     margin-top: 5px;
-    max-width: 80%;
+    max-width: 100%;
   }
 
 @media screen and (max-width: 768px) {

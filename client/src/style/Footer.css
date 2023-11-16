@@ -1,67 +1,67 @@
 .footer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3A4045;
 }
 
 .footer-list {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    margin: 50px 0 40px 0;
-    justify-content: space-evenly;
-    flex-wrap: nowrap;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 20px 0 10px 0;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
 }
 
 .footer-items {
-    font-family: 'Varela Round';
-    font-size: 20px;
-    font-weight: 500;
-    color: #3A4045;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    margin: 0 75px 0 75px;
+  font-family: 'Varela Round';
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+  margin: 0 75px 0 75px;
 }
 
 .footer-items::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #3A4045;
-    bottom: 0;
-    left: 0;
-    transition: width 0.4s ease-in-out;
-  }
-  
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: black;
+  bottom: 0;
+  left: 0;
+  transition: width 0.4s ease-in-out;
+}
+
 .footer-items:hover::before {
-    width: 100%;
-    transition: width 0.4s ease-in-out;
-  }
-  
+  width: 100%;
+  transition: width 0.4s ease-in-out;
+}
+
 .footer-items::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: #3A4045;
-    bottom: 0;
-    right: 0;
-    transition: width 0.4s ease-in-out;
-  }
-  
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: black;
+  bottom: 0;
+  right: 0;
+  transition: width 0.4s ease-in-out;
+}
+
 .footer-items:hover::after {
-    width: 100%;
-    transition: width 0.4s ease-in-out;
-  }
+  width: 100%;
+  transition: width 0.4s ease-in-out;
+}
 
 .footer-copyright {
-    font-family: 'Varela Round';
-    font-size: 15px;
-    font-weight: 300;
-    color: #3A4045;
-    margin: 0 0 20px 0;
+  font-family: 'Varela Round';
+  font-size: 15px;
+  font-weight: 300;
+  color: black;
+  margin: 0 0 5px 0;
 }
