@@ -7,11 +7,11 @@ const ArticleView = () => {
             <div className="master-header-div">
                 <div className = "article-header-div">
                     <div className = "article-header-sub-div">
-                        <h2 class = "title-details" id = "title">Lionel Messi: Beyond Football Greatness, the Epitome of Athletic Excellence</h2>
+                        <h2 class = "title-details" id = "title">Lionel Messi: Beyond Football Greatness</h2>
                         <h4 class = "title-details" id = "fact-opinion">Opinion</h4>
                     </div>    
                     <div className = "article-header-sub-div-2">
-                        <h4>Sports</h4> <h4>KanhaiRaval</h4> <h4>05/13/2042</h4>
+                        <h4>Sports</h4> <h4>KanhaiRaval</h4> <h4>05/13/2023</h4>
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@ const ArticleView = () => {
                 </div>
             </div>
 
-            <p id = "article-content">TIn the realm of sports, few figures can transcend their respective disciplines to become synonymous with greatness. Lionel Messi, recently crowned with his record-breaking eighth Ballon d'Or, not only stands as the greatest football player of all time but also as the unparalleled epitome of athletic brilliance.
+            <p id = "article-content">In the realm of sports, few figures can transcend their respective disciplines to become synonymous with greatness. Lionel Messi, recently crowned with his record-breaking eighth Ballon d'Or, not only stands as the greatest football player of all time but also as the unparalleled epitome of athletic brilliance.
 
 Dominance Beyond Numbers:
 
