@@ -10,7 +10,7 @@ const Login = () => {
         <div className="modal-overlay">
             <section className="login-box">
                 <button onClick = {onClickCloseLoginModal} id = "close-btn">X</button>
-                <h1 id = "greeting">Welcome Back!</h1>
+                <h1 id = "login-greeting">Welcome Back!</h1>
                 <label htmlFor = "email">Email</label>
                 <input type = "email" id = "email"/>
                 <label htmlFor = "password">Password</label>

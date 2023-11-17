@@ -14,7 +14,7 @@ const ArticlesList = () => {
                 <div className = "details">
                 <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
+                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
             </div>
 
             <div className="articles-list">
@@ -22,7 +22,7 @@ const ArticlesList = () => {
                 <div className = "details">
                 <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
+                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
             </div>
 
             <div className="articles-list">
@@ -30,7 +30,7 @@ const ArticlesList = () => {
                 <div className = "details">
                 <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
+                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
             </div>
 
             <div className="articles-list">
@@ -38,7 +38,7 @@ const ArticlesList = () => {
                 <div className = "details">
                 <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
+                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
             </div>
 
             <div className="articles-list">
@@ -46,7 +46,7 @@ const ArticlesList = () => {
                 <div className = "details">
                 <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
+                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
             </div>
         </section>
     );

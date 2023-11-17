@@ -16,7 +16,7 @@
     transform: translate(-50%, -50%);
     top: 40%;
     left: 50%;
-    max-width: 100%;
+    max-width: 80%;
 }
 
 @media (max-width: 768px) {
@@ -34,7 +34,7 @@
     background-color: transparent;
     cursor: pointer;
     position: absolute;
-    top: 75%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
