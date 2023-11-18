@@ -11,13 +11,13 @@
     z-index: 1000;
 }
 
-.login-box {
+.career-box {
     background-color: #3A4045;
     color: white;
     font-family: 'Varela Round';
     position: absolute;
-    width: 80%;
-    max-width: 550px;
+    width: 100%;
+    max-width: 706px;
     height: auto;
     top: 50%;
     left: 50%;
@@ -37,54 +37,13 @@
     right: 10px;
 }
 
-#login-greeting {
-    margin-left: 32.5%;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-#email,
-#password {
-    display: block;
-    border: 1px solid white;
-    background-color: #3A4045;
-    width: 100%;
-    height: 40px;
-}
-
-#email,
-#password {
-    margin-bottom: 20px;
-}
-
-#sign-in {
-    background-color: white;
-    color: #3A4045;
-    font-size: 22px;
-    font-family: 'Varela Round';
-    display: block;
-    width: 100%;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-}
-
-h3 {
-    text-align: center;
-    color: #B5BFC8;
-    margin-top: 20px;
-}
-
-#register-button {
+#contact-us {
     color: white;
     position: relative;
     text-decoration: none;
 }
 
-#register-button::before {
+#contact-us::before {
     content: '';
     position: absolute;
     width: 0;
@@ -95,12 +54,12 @@ h3 {
     transition: width 0.4s ease-in-out;
 }
   
-#register-button:hover::before {
+#contact-us:hover::before {
     width: 100%;
     transition: width 0.4s ease-in-out;
   }
   
-#register-button::after {
+#contact-us::after {
     content: '';
     position: absolute;
     width: 0;
@@ -111,13 +70,13 @@ h3 {
     transition: width 0.4s ease-in-out;
 }
   
-#register-button:hover::after {
+#contact-us:hover::after {
     width: 100%;
     transition: width 0.4s ease-in-out;
 }
 
 @media (max-width: 768px) {
-    .login-box {
+    .career-box {
         width: 90%;
         padding: 20px;
     }

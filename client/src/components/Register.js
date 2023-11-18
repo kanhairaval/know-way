@@ -44,7 +44,7 @@ const Login = () => {
                 <label htmlFor="date-of-birth">Date of Birth</label>
                 <input type="date" id="date-of-birth" />
                 <button id="register">Register</button>
-                <h3>Already have an account? <a href="/Register">Sign In</a></h3>
+                <h3>Already have an account? <a id = "login-button" href="/Login">Sign In</a></h3>
             </section>
         </div>
     );

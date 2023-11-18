@@ -16,7 +16,7 @@ const Login = () => {
                 <label htmlFor = "password">Password</label>
                 <input type = "password" id = "password"/>
                 <button id = "sign-in">Sign In</button>
-                <h3>Don't have an account? <a href = "/Register">Register</a></h3>
+                <h3>Don't have an account? <a id = "register-button" href = "/Register">Register</a></h3>
             </section>
         </div>
     );

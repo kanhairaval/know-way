@@ -8,11 +8,13 @@ import Home from './components/Home';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
+import SuccessRegister from './components/SuccessRegister';
 import About from './components/About';
 import Search from './components/Search';
 import CreateArticle from './components/CreateArticle';
 import ArticlesList from './components/ArticlesList';
 import ArticleView from './components/ArticleView';
+import Career from './components/Career';
 import { RenderingCategoriesAndSearchProvider } from './utils/eventHandlersProvider';
 import { RenderingRegisterModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingLoginModalProvider } from "./utils/eventHandlersProvider";
@@ -36,10 +38,12 @@ function App() {
             <Route path="/search" Component={Search}/>
             <Route path="/login" Component={Login}/>
             <Route path="/register" Component={Register}/>
+            <Route path="/successregister" Component={SuccessRegister}/>
             <Route path="/about" Component={About}/>
             <Route path="/createarticle" Component={CreateArticle}/>
             <Route path="/articleslist" Component={ArticlesList}/>
             <Route path="/articleview" Component={ArticleView}/>
+            <Route path="/career" Component={Career}/>
           </Routes>
           <Footer/>
         </RenderingLoginModalProvider>

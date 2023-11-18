@@ -19,7 +19,7 @@ const NavBar = () => {
         <div>
             <nav className = "nav-bar">
             <Link to = "/">
-                <img onClick = {onOtherClick} className = "nav-logo-img" alt = "logo" src = "navbar-logo.png"/>
+                <img onClick = {onOtherClick} className = "nav-logo-img" alt = "logo" src = "navbar-logo-white.png"/>
             </Link>
                 <ul className = "nav-list">
                     <a><li onClick = {onStartCategoriesClick} className = "nav-items">Categories</li></a>
