@@ -15,6 +15,7 @@ import CreateArticle from './components/CreateArticle';
 import ArticlesList from './components/ArticlesList';
 import ArticleView from './components/ArticleView';
 import Career from './components/Career';
+import ContactUs from './components/ContactUs';
 import { RenderingCategoriesAndSearchProvider } from './utils/eventHandlersProvider';
 import { RenderingRegisterModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingLoginModalProvider } from "./utils/eventHandlersProvider";
@@ -44,6 +45,7 @@ function App() {
             <Route path="/articleslist" Component={ArticlesList}/>
             <Route path="/articleview" Component={ArticleView}/>
             <Route path="/career" Component={Career}/>
+            <Route path="/contactus" Component={ContactUs}/>
           </Routes>
           <Footer/>
         </RenderingLoginModalProvider>
