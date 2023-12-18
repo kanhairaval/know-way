@@ -127,6 +127,9 @@ button .q1-a1 {
 
 #upload-image {
     background-color: transparent;
+    position: absolute;
+    top: -1000px;
+    opacity: 0;
     color: #3A4045;
     padding: 0%;
     border: 1px solid #3A4045;

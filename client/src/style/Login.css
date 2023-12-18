@@ -82,6 +82,7 @@ h3 {
     color: white;
     position: relative;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #register-button::before {

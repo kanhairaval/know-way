@@ -42,7 +42,8 @@ function CreateArticle() {
             <p className = "q5">Would you like to upload an image to accompany your article?</p>
 
             {/* <div className = "q5-a5"> */}
-                <input  id = "upload-image" type = "file" name = "article-image" accept = "image/*"/>
+                
+                <label htmlFor = "upload-image"><input id = "upload-image" type = "file" name = "article-image" accept = "image/*"/><span>Image Upload</span></label>
             {/* </div> */}
 
             <button className = "publish-btn">Publish</button>

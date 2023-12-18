@@ -86,3 +86,55 @@ export const RenderingLoginModalProvider = ({ children }) => {
         </LoginModalContext.Provider>
     );
 };
+
+const ContactUsModalContext = createContext();
+
+export const useContactUsModalContext = () => {
+    return useContext(ContactUsModalContext);
+};
+
+export const RenderingContactUsModalProvider = ({ children }) => {
+    const [showContactUsModal, setShowContactUsModal] = useState(false);
+
+    const onClickOpenContactUsModal = () => {
+        console.log("Contact Us clicked.")
+        setShowContactUsModal(true);
+    };
+
+    const onClickCloseContactUsModal = () => {
+        console.log("Close X clicked for closing contact us modal")
+        setShowContactUsModal(false);
+    };
+
+    return (
+        <ContactUsModalContext.Provider value = {{ showContactUsModal, onClickOpenContactUsModal, onClickCloseContactUsModal }}>
+            {children}
+        </ContactUsModalContext.Provider>
+    );
+};
+
+const CareersModalContext = createContext();
+
+export const useCareersModalContext = () => {
+    return useContext(CareersModalContext);
+};
+
+export const RenderingCareersModalProvider = ({ children }) => {
+    const [showCareersModal, setShowCareersModal] = useState(false);
+
+    const onClickOpenCareersModal = () => {
+        console.log("Careers clicked.")
+        setShowCareersModal(true);
+    };
+
+    const onClickCloseCareersModal = () => {
+        console.log("Close X clicked for closing careers modal")
+        setShowCareersModal(false);
+    };
+
+    return (
+        <CareersModalContext.Provider value = {{ showCareersModal, onClickOpenCareersModal, onClickCloseCareersModal }}>
+            {children}
+        </CareersModalContext.Provider>
+    );
+};
