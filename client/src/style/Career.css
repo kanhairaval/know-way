@@ -41,6 +41,7 @@
     color: white;
     position: relative;
     text-decoration: none;
+    cursor: pointer;
 }
 
 #contact-us::before {
@@ -75,9 +76,21 @@
     transition: width 0.4s ease-in-out;
 }
 
+@media (max-width: 1200px) {
+    .career-box {
+        width: 90%;
+        max-width: 100%;
+        padding: 40px;
+    }
+}
+
 @media (max-width: 768px) {
     .career-box {
         width: 90%;
         padding: 20px;
+    }
+
+    #close-btn {
+        font-size: 18px;
     }
 }

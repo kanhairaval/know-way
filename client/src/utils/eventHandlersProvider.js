@@ -138,3 +138,44 @@ export const RenderingCareersModalProvider = ({ children }) => {
         </CareersModalContext.Provider>
     );
 };
+
+export const RegisterFormData = () => {
+    const [registerFormData, setRegisterFormData] = useState({
+        firstName: "",
+        lastName: "",
+        userName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        dOfb: "",
+    });
+
+    const HandleRegisterInputChange = (e) => {
+        const { id, value } = e.target;
+        setRegisterFormData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }));
+    };
+};
+
+const SuccessfulRegisterationModalContext = createContext();
+
+export const useSuccessfulRegisterationModalContext = () => {
+    return useContext(SuccessfulRegisterationModalContext);
+};
+
+export const RenderingSuccessfulRegistrationModal = ({ children }) => {
+    const [showSuccessfulRegisterModal, setShowSuccessfulRegisterModal] = useState(false);
+
+    const onClickCloseSuccessfulRegistrationModal = () => {
+        console.log("Close X clicked for closing careers modal")
+        setShowSuccessfulRegisterModal(false);
+    };
+
+    return (
+        <SuccessfulRegisterationModalContext.Provider value = {{ showSuccessfulRegisterModal, onClickCloseSuccessfulRegistrationModal }}>
+            {children}
+        </SuccessfulRegisterationModalContext.Provider>
+    );
+};

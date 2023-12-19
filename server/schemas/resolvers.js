@@ -37,14 +37,15 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { firstName, lastName, userName, email, password, dOfb, profilePicture }) => {
+        addUser: async (parent, { firstName, lastName, userName, email, password, dOfb }) => {
             try {
-                const newUser = await User.create({ firstName, lastName, userName, email, password, dOfb, profilePicture });
+                const newUser = await User.create({ firstName, lastName, userName, email, password, dOfb });
                 const token = signToken(newUser);
                 console.log(newUser);
 
                 return { token, newUser };
             } catch (err) {
+                console.error("Failed to sign up", error.message);
                 throw new Error('Failed to sign up.');
             }
         },

@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const RESGISTER = gql`
-  mutation addUser($firstName: String!, $lastName: String!, $userName: String!, $email: String!, $password: String!, $dOfb: String!, $profilePicture: String) {
-    addUser(firstName: $firstName, lastName: $lastName, userName: $userName, email: $email, password: $password, dOfB: $dOfb, profilePicture: $profilePicture) {
+  mutation addUser($firstName: String!, $lastName: String!, $userName: String!, $email: String!, $password: String!, $dOfb: String!) {
+    addUser(firstName: $firstName, lastName: $lastName, userName: $userName, email: $email, password: $password, dOfB: $dOfb) {
       message: "You have successfully registered, please login to create and publish an article."
     }
   }
