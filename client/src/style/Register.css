@@ -53,7 +53,7 @@ label {
     margin-bottom: 10px;
 }
 
-#first-name, #last-name, #user-name, #email, #password, #confirm-password, #date-of-birth {
+#firstName, #lastName, #userName, #email, #password, #confirmPassword, #dOfb {
     border: 1px solid white;
     background-color: #3A4045;
     width: 100%;
@@ -126,6 +126,12 @@ a {
     width: 100%;
     transition: width 0.4s ease-in-out;
 }
+
+.error-message {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+  }
 
 @media (max-width: 768px) {
     .register-box {

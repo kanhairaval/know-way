@@ -139,7 +139,7 @@ export const RenderingCareersModalProvider = ({ children }) => {
     );
 };
 
-export const RegisterFormData = () => {
+export const RegisterFormDataHandler = () => {
     const [registerFormData, setRegisterFormData] = useState({
         firstName: "",
         lastName: "",
@@ -152,10 +152,32 @@ export const RegisterFormData = () => {
 
     const HandleRegisterInputChange = (e) => {
         const { id, value } = e.target;
-        setRegisterFormData((prevData) => ({
-            ...prevData,
-            [id]: value,
-        }));
+        setRegisterFormData((prevData) => {
+            const newData = { ...prevData, [id]: value };
+            console.log(newData);
+            return newData;
+        });
+    };
+
+    const [passwordMatchError, setPasswordMatchError] = useState(false);
+
+    const validatePasswordMatch = () => {
+        const { password, confirmPassword } = registerFormData;
+        setPasswordMatchError(password !== confirmPassword);
+    };
+
+    const onClickRegisterButton = (e) => {
+        e.preventDefault();
+        console.log("Register button clicked.");
+        validatePasswordMatch();
+    }
+
+    return {
+        registerFormData,
+        HandleRegisterInputChange,
+        passwordMatchError,
+        validatePasswordMatch,
+        onClickRegisterButton,
     };
 };
 
