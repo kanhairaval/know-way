@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
+import { useMutation } from "@apollo/client";
+import { REGISTER } from "./mutations";
 
 const CategoriesAndStartContext = createContext();
 
@@ -166,10 +168,40 @@ export const RegisterFormDataHandler = () => {
         setPasswordMatchError(password !== confirmPassword);
     };
 
+    const { addUser } = REGISTER;
+    const [addUserMutation] = useMutation(addUser);
+
+    const handleUserRegistration = async () => {
+
+        if (passwordMatchError) {
+            console.error("Password does not match, regisration aborted.");
+            return;
+        }
+
+        try {
+            const { data } = await addUserMutation({
+                variables: {
+                    firstName: registerFormData.firstName,
+                    lastName: registerFormData.lastName,
+                    userName: registerFormData.userName,
+                    email: registerFormData.email,
+                    password: registerFormData.password,
+                    dOfb: registerFormData.dOfb,
+                },
+            });
+
+            console.log(data);
+            
+        } catch (error) {
+            console.error("Registration error:", error.message);
+        }
+    }
+
     const onClickRegisterButton = (e) => {
         e.preventDefault();
         console.log("Register button clicked.");
         validatePasswordMatch();
+        handleUserRegistration();
     }
 
     return {

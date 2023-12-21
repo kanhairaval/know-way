@@ -4,6 +4,9 @@
   "description": "knowledge&opinion sharing fact checked",
   "main": "server.js",
   "scripts": {
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "start:server": "node server.js",
+    "start:client": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kanhai Raval",
@@ -25,5 +28,8 @@
     "server": "^1.0.38",
     "token": "^0.1.0",
     "web": "^0.0.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

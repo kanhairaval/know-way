@@ -43,10 +43,10 @@ const resolvers = {
                 const token = signToken(newUser);
                 console.log(newUser);
 
-                return { token, newUser };
+                return { success: true, message: "User registered successfully." };
             } catch (err) {
                 console.error("Failed to sign up", error.message);
-                throw new Error('Failed to sign up.');
+                return { success: false, message: "Failed to sign up." };
             }
         },
 
