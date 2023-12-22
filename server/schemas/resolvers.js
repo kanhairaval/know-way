@@ -40,7 +40,6 @@ const resolvers = {
         addUser: async (parent, { firstName, lastName, userName, email, password, dOfb }) => {
             try {
                 const newUser = await User.create({ firstName, lastName, userName, email, password, dOfb });
-                const token = signToken(newUser);
                 console.log(newUser);
 
                 return { success: true, message: "User registered successfully." };

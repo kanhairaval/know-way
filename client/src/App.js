@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 // import NavBar from './components/LoggedInNavBar';
@@ -18,8 +18,11 @@ import { RenderingContactUsModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingCareersModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingSuccessfulRegistrationModal } from "./utils/eventHandlersProvider";
 
-const client = new ApolloClient({
+const httpLink = createHttpLink({
   uri: '/graphql',
+});
+
+const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 

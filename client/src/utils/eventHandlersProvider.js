@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { REGISTER } from "./mutations";
+import { REGISTER } from "../utils/mutations";
 
 const CategoriesAndStartContext = createContext();
 
@@ -168,8 +168,7 @@ export const RegisterFormDataHandler = () => {
         setPasswordMatchError(password !== confirmPassword);
     };
 
-    const { addUser } = REGISTER;
-    const [addUserMutation] = useMutation(addUser);
+    const [addUserMutation] = useMutation(REGISTER);
 
     const handleUserRegistration = async () => {
 

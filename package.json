@@ -20,11 +20,13 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
     "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.2.0",
     "mongoose": "^7.6.3",
     "path": "^0.12.7",
+    "react-scripts": "^5.0.1",
     "server": "^1.0.38",
     "token": "^0.1.0",
     "web": "^0.0.2"
