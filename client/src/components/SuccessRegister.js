@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/SuccessRegister.css";
 import { useLoginModalContext } from "../utils/eventHandlersProvider";
 import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
+import { RenderingRegisterModalProvider } from "../utils/eventHandlersProvider";
+import { RegisterFormDataHandler } from "../utils/eventHandlersProvider";
 
 const SuccessRegister = () => {
 
     const { onClickOpenLoginModal } = useLoginModalContext();
-    const { showSuccessfulRegisterModal, onClickCloseSuccessfulRegistrationModal } = useSuccessfulRegisterationModalContext();
+    const { onClickCloseSuccessfulRegistrationModal } = useSuccessfulRegisterationModalContext();
+    const { setShowRegisterModal } = RenderingRegisterModalProvider();
+    const { successfulRegistration } = RegisterFormDataHandler();
+
+    useEffect(() => {
+        if (successfulRegistration) {
+            setShowRegisterModal(false);
+        }
+    }, [successfulRegistration, setShowRegisterModal]);
 
     return (
         <div className="modal-overlay">

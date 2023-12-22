@@ -57,7 +57,7 @@ export const RenderingRegisterModalProvider = ({ children }) => {
     };
 
     return (
-        <RegisterModalContext.Provider value = {{ showRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
+        <RegisterModalContext.Provider value = {{ showRegisterModal, setShowRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
             {children}
         </RegisterModalContext.Provider>
     );
@@ -169,8 +169,10 @@ export const RegisterFormDataHandler = () => {
     };
 
     const [addUserMutation] = useMutation(REGISTER);
+    const [successfulRegistration, setSuccessfulRegistration] = useState(false);
 
     const handleUserRegistration = async () => {
+        console.log("handleUserRegistration function called");
 
         if (passwordMatchError) {
             console.error("Password does not match, regisration aborted.");
@@ -189,7 +191,11 @@ export const RegisterFormDataHandler = () => {
                 },
             });
 
-            console.log(data);
+            console.log("Registration data:", data);
+
+        if (data.addUser.success) {
+            setSuccessfulRegistration(true);
+        }
             
         } catch (error) {
             console.error("Registration error:", error.message);
@@ -209,6 +215,8 @@ export const RegisterFormDataHandler = () => {
         passwordMatchError,
         validatePasswordMatch,
         onClickRegisterButton,
+        handleUserRegistration,
+        successfulRegistration,
     };
 };
 
@@ -227,7 +235,7 @@ export const RenderingSuccessfulRegistrationModal = ({ children }) => {
     };
 
     return (
-        <SuccessfulRegisterationModalContext.Provider value = {{ showSuccessfulRegisterModal, onClickCloseSuccessfulRegistrationModal }}>
+        <SuccessfulRegisterationModalContext.Provider value = {{ showSuccessfulRegisterModal, onClickCloseSuccessfulRegistrationModal, setShowSuccessfulRegisterModal }}>
             {children}
         </SuccessfulRegisterationModalContext.Provider>
     );

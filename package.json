@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
-    "start:server": "node server.js",
+    "start:server": "node ./server/server.js",
     "start:client": "cd client && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

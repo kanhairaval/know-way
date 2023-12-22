@@ -7,7 +7,7 @@ const db = require('./config/connection');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 6001;
+const PORT = process.env.PORT || 3001;
 const server = new ApolloServer({
     typeDefs,
     resolvers,
@@ -19,7 +19,7 @@ app.use(express.json());
 
 const startApolloServer = async (typeDefs, resolvers) => {
     await server.start();
-    server.applyMiddleware({ app, path: '/graphql' });
+    server.applyMiddleware({ app });
 
     db.once('open', () => {
         app.listen(PORT, () => {
