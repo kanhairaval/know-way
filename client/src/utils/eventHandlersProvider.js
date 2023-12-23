@@ -57,7 +57,7 @@ export const RenderingRegisterModalProvider = ({ children }) => {
     };
 
     return (
-        <RegisterModalContext.Provider value = {{ showRegisterModal, setShowRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
+        <RegisterModalContext.Provider value = {{ showRegisterModal, onClickOpenRegisterModal, onClickCloseRegisterModal }}>
             {children}
         </RegisterModalContext.Provider>
     );
@@ -191,7 +191,7 @@ export const RegisterFormDataHandler = () => {
                 },
             });
 
-            console.log("Registration data:", data);
+            console.log("Registration data:", data, data.addUser.success);
 
         if (data.addUser.success) {
             setSuccessfulRegistration(true);
@@ -229,13 +229,17 @@ export const useSuccessfulRegisterationModalContext = () => {
 export const RenderingSuccessfulRegistrationModal = ({ children }) => {
     const [showSuccessfulRegisterModal, setShowSuccessfulRegisterModal] = useState(false);
 
+    const openSuccessfulRegistration = () => {
+        setShowSuccessfulRegisterModal(true);
+    };
+
     const onClickCloseSuccessfulRegistrationModal = () => {
         console.log("Close X clicked for closing careers modal")
         setShowSuccessfulRegisterModal(false);
     };
 
     return (
-        <SuccessfulRegisterationModalContext.Provider value = {{ showSuccessfulRegisterModal, onClickCloseSuccessfulRegistrationModal, setShowSuccessfulRegisterModal }}>
+        <SuccessfulRegisterationModalContext.Provider value = {{ showSuccessfulRegisterModal, onClickCloseSuccessfulRegistrationModal, openSuccessfulRegistration }}>
             {children}
         </SuccessfulRegisterationModalContext.Provider>
     );
