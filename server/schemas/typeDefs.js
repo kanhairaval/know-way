@@ -28,6 +28,7 @@ type Articles {
 type Auth {
     token: ID!
     user: User
+    success: Boolean!
 }
 
 type UserRegistrationResponse {

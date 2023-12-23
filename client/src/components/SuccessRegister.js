@@ -2,21 +2,11 @@ import React, { useEffect } from "react";
 import "../style/SuccessRegister.css";
 import { useLoginModalContext } from "../utils/eventHandlersProvider";
 import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
-import { RegisterFormDataHandler } from "../utils/eventHandlersProvider";
-import { RenderingRegisterModalProvider } from "../utils/eventHandlersProvider";
 
 const SuccessRegister = () => {
 
     const { onClickOpenLoginModal } = useLoginModalContext();
     const { onClickCloseSuccessfulRegistrationModal } = useSuccessfulRegisterationModalContext();
-    const { successfulRegistration } = RegisterFormDataHandler();
-    const { onClickCloseRegisterModal } = RenderingRegisterModalProvider();
-
-    useEffect(() => {
-        if (successfulRegistration) {
-            onClickCloseRegisterModal();
-        }
-    }, [successfulRegistration, onClickCloseRegisterModal]);
 
     return (
         <div className="modal-overlay">

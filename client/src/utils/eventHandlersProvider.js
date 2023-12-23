@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../utils/mutations";
+import { LOGIN } from "../utils/mutations";
 
 const CategoriesAndStartContext = createContext();
 
@@ -73,7 +74,7 @@ export const RenderingLoginModalProvider = ({ children }) => {
     const [showLoginModal, setShowLoginModal] = useState(false);
 
     const onClickOpenLoginModal = () => {
-        console.log("Register clicked.")
+        console.log("Login from Navbar clicked.")
         setShowLoginModal(true);
     };
 
@@ -243,4 +244,59 @@ export const RenderingSuccessfulRegistrationModal = ({ children }) => {
             {children}
         </SuccessfulRegisterationModalContext.Provider>
     );
+};
+
+export const LoginFormDataHandler = () => {
+    const [loginFormData, setLoginFormData] = useState({
+        email: "",
+        password: "",
+    });
+
+    const handleLoginInput = (e) => {
+        const { id, value } = e.target;
+        setLoginFormData((prevData) => {
+            const newData = { ...prevData, [id]: value };
+            console.log(newData);
+            return newData;
+        });
+    };
+
+    const [loginUserMutataion] = useMutation(LOGIN);
+    const [successfulLogin, setSuccessfulLogin] = useState(false);
+
+    const handleUserLogin = async () => {
+        console.log("handleUserLogin function called.");
+
+        try {
+            const { data } = await loginUserMutataion({
+                variables: {
+                    email: loginFormData.email,
+                    password: loginFormData.password,
+                },
+            });
+
+            console.log("Login data:", data.login.success);
+
+            if (data.login.success) {
+                setSuccessfulLogin(true);
+            }
+
+        } catch (error) {
+            console.error("Login error:", error.message);
+        }
+    };
+
+    const onClickLoginButton = (e) => {
+        e.preventDefault();
+        console.log("Login button clicked.");
+        handleUserLogin();
+    };
+
+    return {
+        loginFormData,
+        handleLoginInput,
+        successfulLogin,
+        handleUserLogin,
+        onClickLoginButton,
+    };
 };

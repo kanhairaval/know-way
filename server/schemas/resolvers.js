@@ -66,9 +66,11 @@ const resolvers = {
 
                 const token = signToken(user);
                 console.log(user);
-                return { token, user };
+                return { token, user, success: true };
             } catch (err) {
+                console.error('Login error:', err.message);
                 throw new Error('Login failed.');
+                return { success: false };
             }
         },
 
