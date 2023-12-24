@@ -3,7 +3,7 @@ import "../style/Register.css";
 import { useRegisterModalContext } from "../utils/eventHandlersProvider";
 import { useLoginModalContext } from "../utils/eventHandlersProvider";
 import { RegisterFormDataHandler } from "../utils/eventHandlersProvider";
-// import SuccessRegister from "../components/SuccessRegister";
+import SuccessRegister from "../components/SuccessRegister";
 import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
 
 const Register = () => {
@@ -13,17 +13,12 @@ const Register = () => {
     const { registerFormData, successfulRegistration, HandleRegisterInputChange, passwordMatchError, onClickRegisterButton } = RegisterFormDataHandler();
     const { openSuccessfulRegistration } = useSuccessfulRegisterationModalContext();
 
-    // useEffect(() => {
-    //     if (successfulRegistration) {
-    //         onClickCloseRegisterModal();
-    //     }
-    // }, [successfulRegistration, onClickCloseRegisterModal]);
-
-    // useEffect(() => {
-    //     if (successfulRegistration) {
-    //         openSuccessfulRegistration();
-    //     }
-    // }, [successfulRegistration, openSuccessfulRegistration]);
+    useEffect(() => {
+        if (successfulRegistration) {
+            onClickCloseRegisterModal();
+            openSuccessfulRegistration();
+        }
+    }, [successfulRegistration, onClickCloseRegisterModal, openSuccessfulRegistration]);
 
     return (
         <div className="modal-overlay">

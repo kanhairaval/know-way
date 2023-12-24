@@ -41,7 +41,7 @@ function App() {
           {/* <LoggedInNavBar/> */}
           <Routes>
             <Route path="/" Component={Home}/>
-            <Route path="/successregister" Component={SuccessRegister}/>
+            {/* <Route path="/successregister" Component={SuccessRegister}/> */}
             <Route path="/about" Component={About}/>
             <Route path="/createarticle" Component={CreateArticle}/>
             <Route path="/articleslist" Component={ArticlesList}/>

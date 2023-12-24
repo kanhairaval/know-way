@@ -6,6 +6,8 @@ import Login from "./Login";
 import Register from "./Register";
 import { Link } from 'react-router-dom';
 import "../style/NavBar.css";
+import SuccessRegister from "../components/SuccessRegister";
+import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
 
 const NavBar = () => {
 
@@ -14,6 +16,8 @@ const NavBar = () => {
     const { showRegisterModal, onClickOpenRegisterModal } = useRegisterModalContext();
 
     const { showLoginModal, onClickOpenLoginModal } = useLoginModalContext();
+
+    const { showSuccessfulRegisterModal } = useSuccessfulRegisterationModalContext();
 
     return (
         <div>
@@ -35,6 +39,7 @@ const NavBar = () => {
                 {showSearch && <Search />}
                 {showLoginModal && <Login/>}
                 {showRegisterModal && <Register />}
+                {showSuccessfulRegisterModal && <SuccessRegister />}
         </div>
     );
 };

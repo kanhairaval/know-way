@@ -164,21 +164,11 @@ export const RegisterFormDataHandler = () => {
 
     const [passwordMatchError, setPasswordMatchError] = useState(false);
 
-    const validatePasswordMatch = () => {
-        const { password, confirmPassword } = registerFormData;
-        setPasswordMatchError(password !== confirmPassword);
-    };
-
     const [addUserMutation] = useMutation(REGISTER);
     const [successfulRegistration, setSuccessfulRegistration] = useState(false);
 
     const handleUserRegistration = async () => {
         console.log("handleUserRegistration function called");
-
-        if (passwordMatchError) {
-            console.error("Password does not match, regisration aborted.");
-            return;
-        }
 
         try {
             const { data } = await addUserMutation({
@@ -206,18 +196,23 @@ export const RegisterFormDataHandler = () => {
     const onClickRegisterButton = (e) => {
         e.preventDefault();
         console.log("Register button clicked.");
-        validatePasswordMatch();
-        handleUserRegistration();
+        if (registerFormData.password === registerFormData.confirmPassword) {
+            console.log("passwordvalidation");
+            setPasswordMatchError(false);
+            handleUserRegistration();
+        } else {
+            console.log("no match");
+            setPasswordMatchError(true);
+        }
     }
 
     return {
         registerFormData,
         HandleRegisterInputChange,
-        passwordMatchError,
-        validatePasswordMatch,
         onClickRegisterButton,
         handleUserRegistration,
         successfulRegistration,
+        passwordMatchError,
     };
 };
 
@@ -231,6 +226,7 @@ export const RenderingSuccessfulRegistrationModal = ({ children }) => {
     const [showSuccessfulRegisterModal, setShowSuccessfulRegisterModal] = useState(false);
 
     const openSuccessfulRegistration = () => {
+        console.log("open success function called");
         setShowSuccessfulRegisterModal(true);
     };
 
