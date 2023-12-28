@@ -3,10 +3,9 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-// import NavBar from './components/LoggedInNavBar';
+// import LoggedInNavBar from './components/LoggedInNavBar';
 import Home from './components/Home';
 import Footer from './components/Footer';
-import SuccessRegister from './components/SuccessRegister';
 import About from './components/About';
 import CreateArticle from './components/CreateArticle';
 import ArticlesList from './components/ArticlesList';
@@ -41,7 +40,6 @@ function App() {
           {/* <LoggedInNavBar/> */}
           <Routes>
             <Route path="/" Component={Home}/>
-            {/* <Route path="/successregister" Component={SuccessRegister}/> */}
             <Route path="/about" Component={About}/>
             <Route path="/createarticle" Component={CreateArticle}/>
             <Route path="/articleslist" Component={ArticlesList}/>

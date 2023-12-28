@@ -1,5 +1,5 @@
 import React from "react";
-import { useCategoriesAndStartContext, useRegisterModalContext, useLoginModalContext } from "../utils/eventHandlersProvider";
+import { useCategoriesAndStartContext, useRegisterModalContext, useLoginModalContext, useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
 import Categories from "./Categories";
 import Search from "./Search";
 import Login from "./Login";
@@ -7,7 +7,6 @@ import Register from "./Register";
 import { Link } from 'react-router-dom';
 import "../style/NavBar.css";
 import SuccessRegister from "../components/SuccessRegister";
-import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
 
 const NavBar = () => {
 

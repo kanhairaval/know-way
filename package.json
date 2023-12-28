@@ -23,6 +23,7 @@
     "graphql-tag": "^2.12.6",
     "json": "^11.0.0",
     "jsonwebtoken": "^9.0.2",
+    "jwt-decode": "^4.0.0",
     "mongodb": "^6.2.0",
     "mongoose": "^7.6.3",
     "path": "^0.12.7",
