@@ -36,7 +36,7 @@ module.exports = {
     signToken: function ({ firstName, userName, email, password, _id }) {
         const payload = { firstName, userName, email, password, _id };
 
-        console.log(process.env.JWT_SECRET);
+        // console.log(process.env.JWT_SECRET);
         return jwt.sign({ data: payload }, process.env.JWT_SECRET, { expiresIn: expiration });
     },
 };

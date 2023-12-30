@@ -6,12 +6,14 @@ class AuthService {
     }
 
     login(idToken) {
+        console.log("Login function called");
         sessionStorage.setItem(this.tokenKey, idToken);
 
         window.location.assign("/");
     }
 
     logout() {
+        console.log("Logout function called");
         sessionStorage.removeItem(this.tokenKey);
 
         window.location.assign("/");
@@ -28,10 +30,7 @@ class AuthService {
     isTokenExpired(token) {
         try {
             const decodedToken = jwtDecode(token);
-            if (decodedToken.exp < Date.now() /1000) {
-                return true;
-            } else
-            return false;
+            return decodedToken.exp < Date.now() / 1000;
         } catch (err) {
             return false;
         }
@@ -39,6 +38,8 @@ class AuthService {
 
     loggedIn() {
         const token = this.getToken();
+        console.log(this.isTokenExpired());
+        console.log(Date.now()/1000);
         return !!token && !this.isTokenExpired(token);
     }
 }

@@ -3,7 +3,6 @@ import "../style/Register.css";
 import { useRegisterModalContext } from "../utils/eventHandlersProvider";
 import { useLoginModalContext } from "../utils/eventHandlersProvider";
 import { RegisterFormDataHandler } from "../utils/eventHandlersProvider";
-import SuccessRegister from "../components/SuccessRegister";
 import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
 
 const Register = () => {

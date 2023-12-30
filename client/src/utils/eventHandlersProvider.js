@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REGISTER } from "../utils/mutations";
 import { LOGIN } from "../utils/mutations";
+import AuthService from "./auth";
 
 const CategoriesAndStartContext = createContext();
 
@@ -79,7 +80,7 @@ export const RenderingLoginModalProvider = ({ children }) => {
     };
 
     const onClickCloseLoginModal = () => {
-        console.log("Close X clicked for closing register modal")
+        console.log("Close X clicked for closing login modal")
         setShowLoginModal(false);
     };
 
@@ -272,9 +273,11 @@ export const LoginFormDataHandler = () => {
             });
 
             console.log("Login data:", data.login.success);
+            console.log("Login token data:", data.login.token);
 
             if (data.login.success) {
                 setSuccessfulLogin(true);
+                AuthService.login(data.login.token);
             }
 
         } catch (error) {
@@ -295,4 +298,11 @@ export const LoginFormDataHandler = () => {
         handleUserLogin,
         onClickLoginButton,
     };
+};
+
+
+export const onClickLogoutButton = (e) => {
+        e.preventDefault();
+        console.log("Logout button clicked.");
+        AuthService.logout();
 };

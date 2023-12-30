@@ -3,7 +3,8 @@ import React from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-// import LoggedInNavBar from './components/LoggedInNavBar';
+import LoggedInNavBar from './components/LoggedInNavBar';
+import AuthService from "./utils/auth";
 import Home from './components/Home';
 import Footer from './components/Footer';
 import About from './components/About';
@@ -36,8 +37,7 @@ function App() {
         <RenderingContactUsModalProvider>
         <RenderingCareersModalProvider>
         <RenderingSuccessfulRegistrationModal>
-          <NavBar/>
-          {/* <LoggedInNavBar/> */}
+          {AuthService.loggedIn() ? <LoggedInNavBar/> : <NavBar/>}
           <Routes>
             <Route path="/" Component={Home}/>
             <Route path="/about" Component={About}/>
