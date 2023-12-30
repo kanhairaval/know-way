@@ -1,5 +1,6 @@
 import React from 'react';
-import "../style/CreateArticle.css"
+import "../style/CreateArticle.css";
+import { CreateArticleHandler } from "../utils/eventHandlersProvider";
 
 const createButtons = (arrayOfCategories) => {
     const buttons = arrayOfCategories.map((category, index) => (
@@ -12,13 +13,16 @@ const createButtons = (arrayOfCategories) => {
 const arrayOfCategories = ["Technology", "Science", "Sports", "Politics", "Business & Finance", "Travel", "Entertainment", "Food & Drink", "Health", "Fashion"];
 
 function CreateArticle() {
+
+    const { opinionButton, onOpinionButtonClick, factButton, onFactButtonClick } = CreateArticleHandler();
+
     return (
         <section className = "create-article">
 
             <p className = "q1">What type of article would you like to publish?</p>
 
             <div className = "q1-a1">
-                <button id = "fact">Factual</button> <button id = "opinion">Opinionated</button>
+                <button onClick = {onFactButtonClick} id = "fact" className = {factButton ? "active" : ""}>Factual</button> <button onClick = {onOpinionButtonClick} id = "opinion" className = {opinionButton ? "active" : ""}>Opinionated</button>
             </div>
 
             <p className = "q2">Please, select a category for your article:</p>

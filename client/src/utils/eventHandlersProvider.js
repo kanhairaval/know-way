@@ -302,7 +302,31 @@ export const LoginFormDataHandler = () => {
 
 
 export const onClickLogoutButton = (e) => {
-        e.preventDefault();
-        console.log("Logout button clicked.");
-        AuthService.logout();
+    e.preventDefault();
+    console.log("Logout button clicked.");
+    AuthService.logout();
+};
+
+export const CreateArticleHandler = () => {
+    const [opinionButton, SetOpinionButton] = useState(false);
+    const [factButton, SetFactButton] = useState(false);
+    
+    const onOpinionButtonClick = () => {
+        console.log("Opinionated button clicked.");
+        SetFactButton(false);
+        SetOpinionButton(true);
+    };
+
+    const onFactButtonClick = () => {
+        console.log("Factual button clicked.");
+        SetOpinionButton(false);
+        SetFactButton(true);
+    };
+
+    return {
+        opinionButton,
+        onOpinionButtonClick,
+        factButton,
+        onFactButtonClick,
+    };
 };

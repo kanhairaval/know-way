@@ -22,7 +22,9 @@ const LoggedInNavBar = () => {
                     <Link to="/about">
                         <li onClick = {onOtherClick} className="nav-items">About</li>
                     </Link>
-                    <a><li className = "nav-items">Publish Article</li></a>
+                    <Link to="createarticle">
+                        <li onClick = {onOtherClick} className = "nav-items">Publish Article</li>
+                    </Link>
                     <a><li onClick = {onClickLogoutButton} className = "nav-items">Logout</li></a>
                 </ul>
             </nav>

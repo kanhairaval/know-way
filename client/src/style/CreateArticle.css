@@ -33,8 +33,7 @@ button .q1-a1 {
     color: white;
 }
 
-/* Add click event class name with if else to change color, will happen in-line JSX logic */
-.selected {
+#fact.active, #opinion.active {
     background-color: #3A4045;
     color: white;
 }
