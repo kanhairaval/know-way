@@ -308,19 +308,25 @@ export const onClickLogoutButton = (e) => {
 };
 
 export const CreateArticleHandler = () => {
-    const [opinionButton, SetOpinionButton] = useState(false);
-    const [factButton, SetFactButton] = useState(false);
+    const [opinionButton, setOpinionButton] = useState(false);
+    const [factButton, setFactButton] = useState(false);
+    const [categoriesButton, setCategoriesButton] = useState(false);
     
     const onOpinionButtonClick = () => {
         console.log("Opinionated button clicked.");
-        SetFactButton(false);
-        SetOpinionButton(true);
+        setFactButton(false);
+        setOpinionButton(true);
     };
 
     const onFactButtonClick = () => {
         console.log("Factual button clicked.");
-        SetOpinionButton(false);
-        SetFactButton(true);
+        setOpinionButton(false);
+        setFactButton(true);
+    };
+
+    const onCategoriesButtonClick = (index) => {
+        console.log("Categories button clicked.");
+        setCategoriesButton(index);
     };
 
     return {
@@ -328,5 +334,7 @@ export const CreateArticleHandler = () => {
         onOpinionButtonClick,
         factButton,
         onFactButtonClick,
+        categoriesButton,
+        onCategoriesButtonClick,
     };
 };

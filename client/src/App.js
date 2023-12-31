@@ -37,11 +37,11 @@ function App() {
         <RenderingContactUsModalProvider>
         <RenderingCareersModalProvider>
         <RenderingSuccessfulRegistrationModal>
-          {AuthService.loggedIn() ? <LoggedInNavBar/> : <NavBar/>}
+          {AuthService.loggedIn() && !AuthService.isTokenExpired() ? <LoggedInNavBar/> : <NavBar/>}
           <Routes>
             <Route path="/" Component={Home}/>
             <Route path="/about" Component={About}/>
-            <Route path="/createarticle" Component={CreateArticle}/>
+            {AuthService.loggedIn() && !AuthService.isTokenExpired() ? (<Route path="/createarticle" Component={CreateArticle}/>) : (<Route path="/" Component={Home}/>)}
             <Route path="/articleslist" Component={ArticlesList}/>
             <Route path="/articleview" Component={ArticleView}/>
           </Routes>

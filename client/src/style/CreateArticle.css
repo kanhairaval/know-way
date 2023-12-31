@@ -66,6 +66,11 @@ button .q1-a1 {
     color: white;
 }
 
+.q2-a2 button.active {
+    background-color: #3A4045;
+    color: white;
+}
+
 .q3 {
     color: #3A4045;
     text-align: center;

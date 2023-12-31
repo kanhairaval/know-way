@@ -2,19 +2,18 @@ import React from 'react';
 import "../style/CreateArticle.css";
 import { CreateArticleHandler } from "../utils/eventHandlersProvider";
 
-const createButtons = (arrayOfCategories) => {
-    const buttons = arrayOfCategories.map((category, index) => (
-        <button key={index}>{category}</button>
-    ));
-
-    return buttons;
-};
-
-const arrayOfCategories = ["Technology", "Science", "Sports", "Politics", "Business & Finance", "Travel", "Entertainment", "Food & Drink", "Health", "Fashion"];
-
 function CreateArticle() {
 
-    const { opinionButton, onOpinionButtonClick, factButton, onFactButtonClick } = CreateArticleHandler();
+    const { opinionButton, onOpinionButtonClick, factButton, onFactButtonClick, categoriesButton, onCategoriesButtonClick } = CreateArticleHandler();
+    const arrayOfCategories = ["Technology", "Science", "Sports", "Politics", "Business & Finance", "Travel", "Entertainment", "Food & Drink", "Health", "Fashion"];
+
+    const createButtons = (arrayOfCategories) => {
+        const buttons = arrayOfCategories.map((category, index) => (
+            <button key={index} onClick={() => onCategoriesButtonClick(index)} className = {index === categoriesButton ? "active" : "q2-a2"}>{category}</button>
+        ));
+    
+        return buttons;
+    };
 
     return (
         <section className = "create-article">
