@@ -65,7 +65,7 @@ const resolvers = {
                 }
 
                 const token = signToken(user);
-                console.log(user);
+                // console.log(user);
                 return { token, user, success: true };
             } catch (err) {
                 console.error('Login error:', err.message);
@@ -80,9 +80,10 @@ const resolvers = {
             try {
                 const newArticle = await Articles.create({ title, categoryName, content, author, isFact, isOpinion, siteSources, articleImage });
                 console.log(newArticle);
-                return newArticle;
+                return { message: "Article published successfully.", success: true };
             } catch (err) {
                 console.error(err);
+                return { message: "Article could not be published.", success: false };
                 throw new Error('Failed to create an article.');
             }
         } else {

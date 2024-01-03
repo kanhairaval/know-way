@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
+import { setContext } from "@apollo/client/link/context"
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import LoggedInNavBar from './components/LoggedInNavBar';
@@ -18,12 +19,22 @@ import { RenderingContactUsModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingCareersModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingSuccessfulRegistrationModal } from "./utils/eventHandlersProvider";
 
-// const httpLink = createHttpLink({
-//   uri: 'http://localhost:3001/graphql',
-// });
+const httpLink = createHttpLink({
+  uri: 'http://localhost:3001/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 

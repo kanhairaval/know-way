@@ -272,6 +272,7 @@ export const LoginFormDataHandler = () => {
                 },
             });
 
+            console.log(data);
             console.log("Login data:", data.login.success);
             console.log("Login token data:", data.login.token);
 

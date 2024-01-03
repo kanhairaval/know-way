@@ -15,6 +15,7 @@ export const LOGIN = gql`
       token
       user {
         email
+        userName
       }
       success
     }
@@ -24,7 +25,7 @@ export const LOGIN = gql`
 export const CREATEARTICLE = gql`
   mutation createArticle($title: String!, $categoryName: String!, $content: String!, $author: String, $isFact: Boolean, $isOpinion: Boolean, $siteSources: [String], $articleImage: String) {
     createArticle(title: $title, categoryName: $categoryName, content: $content, author: $author, isFact: $isFact, isOpinion: $isOpinion, siteSources: $siteSources, articleImage: $articleImage) {
-      message
+      ArticleResponse
     }
   }
 `;
