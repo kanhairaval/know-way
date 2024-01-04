@@ -74,11 +74,11 @@ const resolvers = {
             }
         },
 
-        createArticle: async (parent, { title, categoryName, content, author, isFact, isOpinion, siteSources, articleImage }, context) => {
+        createArticle: async (parent, { title, categoryName, content, author, isFact, isOpinion, articleImage }, context) => {
 
             if (context.user) {
             try {
-                const newArticle = await Articles.create({ title, categoryName, content, author, isFact, isOpinion, siteSources, articleImage });
+                const newArticle = await Articles.create({ title, categoryName, content, author, isFact, isOpinion, articleImage });
                 console.log(newArticle);
                 return { message: "Article published successfully.", success: true };
             } catch (err) {

@@ -3,11 +3,13 @@ import { jwtDecode } from "jwt-decode";
 class AuthService {
     constructor() {
         this.tokenKey = "id_token";
+        this.usernameKey = "userName";
     }
 
-    login(idToken) {
+    login(idToken, userName) {
         console.log("Login function called");
         sessionStorage.setItem(this.tokenKey, idToken);
+        sessionStorage.setItem(this.usernameKey, userName);
 
         window.location.assign("/");
     }
@@ -15,6 +17,7 @@ class AuthService {
     logout() {
         console.log("Logout function called");
         sessionStorage.removeItem(this.tokenKey);
+        sessionStorage.removeItem(this.usernameKey);
 
         window.location.assign("/");
     }
@@ -24,7 +27,7 @@ class AuthService {
     }
 
     getProfile() {
-        return jwtDecode(this.getToken());
+        return sessionStorage.getItem(this.usernameKey);
     }
 
     isTokenExpired(token) {

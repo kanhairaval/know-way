@@ -84,7 +84,7 @@ button .q1-a1 {
     width: 100%;
 }
 
-#title-input {
+#titleInput {
     background-color: transparent;
     color: #3A4045;
     font-size: 16px;
@@ -107,7 +107,7 @@ button .q1-a1 {
     width: 100%;
 }
 
-#article-text {
+#articleText {
     display: flex;
     background-color: transparent;
     color: #3A4045;
@@ -129,7 +129,7 @@ button .q1-a1 {
     font-weight: bold;
 }
 
-#upload-image {
+#uploadImage {
     background-color: transparent;
     position: absolute;
     top: -1000px;

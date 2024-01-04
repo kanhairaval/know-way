@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
-import { REGISTER } from "../utils/mutations";
-import { LOGIN } from "../utils/mutations";
+import { REGISTER, LOGIN, CREATEARTICLE } from "../utils/mutations";
 import AuthService from "./auth";
 
 const CategoriesAndStartContext = createContext();
@@ -275,10 +274,11 @@ export const LoginFormDataHandler = () => {
             console.log(data);
             console.log("Login data:", data.login.success);
             console.log("Login token data:", data.login.token);
+            console.log("Login user data:", data.login.user.userName);
 
             if (data.login.success) {
                 setSuccessfulLogin(true);
-                AuthService.login(data.login.token);
+                AuthService.login(data.login.token, data.login.user.userName);
             }
 
         } catch (error) {
@@ -311,7 +311,18 @@ export const onClickLogoutButton = (e) => {
 export const CreateArticleHandler = () => {
     const [opinionButton, setOpinionButton] = useState(false);
     const [factButton, setFactButton] = useState(false);
-    const [categoriesButton, setCategoriesButton] = useState(false);
+    const [categoriesButton, setCategoriesButton] = useState("");
+    const [articleTitleText, setArticleTitleText] = useState({
+        titleInput: ""
+    });
+    const [articleBodyText, setArticleBodyText] = useState({
+        articleText: ""
+    });
+    const [articleImage, setArticleImage] = useState({
+        uploadImage: ""
+    });
+    const [successfulPublish, setSuccessfulPublish] = useState(false);
+    const userName = AuthService.getProfile();
     
     const onOpinionButtonClick = () => {
         console.log("Opinionated button clicked.");
@@ -325,9 +336,77 @@ export const CreateArticleHandler = () => {
         setFactButton(true);
     };
 
-    const onCategoriesButtonClick = (index) => {
+    const onCategoriesButtonClick = (event) => {
         console.log("Categories button clicked.");
-        setCategoriesButton(index);
+        const category = event.target.innerText;
+        console.log("Selected category:", category);
+        setCategoriesButton(category);
+    };
+
+    const handleArticleTitleInput = (e) => {
+        const { id, value } = e.target;
+        setArticleTitleText((prevData) => {
+            const newData = { ...prevData, [id]: value };
+            console.log(newData);
+            return newData;
+        });
+    };
+
+    const handleArticleBody = (e) => {
+        const { id, value } = e.target;
+        const formattedValue = value.replace(/\n/g, "\\n");
+        setArticleBodyText((prevData) => {
+            const newData = { ...prevData, [id]: formattedValue };
+            console.log(newData);
+            return newData;
+        });
+    };
+
+    const handleArticleImage = (e) => {
+        const { id, value } = e.target;
+        setArticleImage((prevData) => {
+            const newData = { ...prevData, [id]: value };
+            console.log(newData);
+            return newData;
+        });
+    };
+
+    const [createArticleMutation] = useMutation(CREATEARTICLE);
+
+    const handleUserPublish = async () => {
+        console.log("handleUserPublish function called.");
+
+        try {
+            const { data } = await createArticleMutation({
+                variables: {
+                    title: articleTitleText.titleInput,
+                    categoryName: categoriesButton,
+                    content: articleBodyText.articleText,
+                    author: userName,
+                    isFact: factButton,
+                    isOpinion: opinionButton,
+                    articleImage: articleImage.uploadImage,
+                },
+            });
+
+            console.log(data);
+            console.log("Publishing data:", data.createArticle.success);
+            console.log("Publishing data message:", data.createArticle.message);
+
+
+            if (data.createArticle.success) {
+                setSuccessfulPublish(true);
+            }
+
+        } catch (error) {
+            console.error("Publishing error:", error.message)
+        }
+    };
+
+    const onClickPublishButton = (e) => {
+        e.preventDefault();
+        console.log("Publish button clicked.");
+        handleUserPublish();
     };
 
     return {
@@ -337,5 +416,11 @@ export const CreateArticleHandler = () => {
         onFactButtonClick,
         categoriesButton,
         onCategoriesButtonClick,
+        handleArticleTitleInput,
+        handleArticleBody,
+        handleArticleImage,
+        handleUserPublish,
+        successfulPublish,
+        onClickPublishButton,
     };
 };
