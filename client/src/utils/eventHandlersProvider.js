@@ -363,12 +363,22 @@ export const CreateArticleHandler = () => {
     };
 
     const handleArticleImage = (e) => {
-        const { id, value } = e.target;
-        setArticleImage((prevData) => {
-            const newData = { ...prevData, [id]: value };
-            console.log(newData);
-            return newData;
-        });
+        const imageFile = e.target.files[0];
+
+        if (imageFile) {
+            const imageFileReader = new FileReader();
+
+            imageFileReader.onloadend = () => {
+                const imageDataUrl = imageFileReader.result;
+                console.log("Selected image data URL:", imageDataUrl);
+
+                setArticleImage((prevData) => ({
+                    ...prevData,
+                    uploadImage: imageDataUrl,
+                }));
+            };
+            imageFileReader.readAsDataURL(imageFile);
+        }
     };
 
     const [createArticleMutation] = useMutation(CREATEARTICLE);

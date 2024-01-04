@@ -141,6 +141,18 @@ button .q1-a1 {
     font-weight: bold;
 }
 
+span {
+    background-color: transparent;
+    color: #3A4045;
+    border: 2px solid #3A4045;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+    margin: 20px auto;
+}
+
 .publish-btn {
     background-color: transparent;
     color: #3A4045;
@@ -151,6 +163,11 @@ button .q1-a1 {
     padding: 15px 25px;
     display: block;
     margin: 20px auto;
+}
+
+span:hover {
+    background-color: #3A4045;
+    color: white;
 }
 
 .publish-btn:hover {

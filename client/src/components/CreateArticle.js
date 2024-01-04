@@ -9,7 +9,7 @@ function CreateArticle() {
 
     const createButtons = (arrayOfCategories) => {
         const buttons = arrayOfCategories.map((category, index) => (
-            <button key = {index} onClick={onCategoriesButtonClick} className = {index === categoriesButton ? "active" : "q2-a2"}>{category}</button>
+            <button key = {index} onClick={onCategoriesButtonClick} className = {category === categoriesButton ? "active" : "q2-a2"}>{category}</button>
         ));
     
         return buttons;
@@ -48,7 +48,7 @@ function CreateArticle() {
 
             {/* <div className = "q5-a5"> */}
                 
-                <label htmlFor = "upload-image"><input value = {articleImage?.uploadImage} onChange = {handleArticleImage} id = "uploadImage" type = "file" name = "article-image" accept = "image/*"/><span>Image Upload</span></label>
+                <label htmlFor = "uploadImage"><input onChange = {handleArticleImage} id = "uploadImage" type = "file" name = "article-image" accept = "image/*"/><span>Upload Article Image</span></label>
             {/* </div> */}
 
             <button onClick = {onClickPublishButton} className = "publish-btn">Publish</button>
