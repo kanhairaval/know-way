@@ -13,7 +13,6 @@ type User {
 }
 
 type Articles {
-    _id: ID!
     title: String!
     content: String!
     author: String

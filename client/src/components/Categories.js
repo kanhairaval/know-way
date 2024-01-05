@@ -1,24 +1,32 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../style/Categories.css";
+import { useCategoriesAndStartContext } from "../utils/eventHandlersProvider";
 
 const Categories = () => {
+
+    const { onOtherClick } = useCategoriesAndStartContext();
+
     return (
         <section className = "categories">
             <div className = "categories-container">
                 <ul className = "categories-list">
-                    <li className = "categories-items">Technology</li>
-                    <li className = "categories-items">Science</li>
-                    <li className = "categories-items">Sports</li>
-                    <li className = "categories-items">Politics</li>
-                    <li className = "categories-items">Business & Finance</li>
-                    <li className = "categories-items">Travel</li>
-                    <li className = "categories-items">Entertainment</li>
-                    <li className = "categories-items">Food & Drink</li>
-                    <li className = "categories-items">Health</li>
-                    <li className = "categories-items">Fashion</li>
+                    <Link to = "/articleslist/technology">
+                        <li onClick = {onOtherClick} className = "categories-items">Technology</li>
+                    </Link>
+                        <li onClick = {onOtherClick} className = "categories-items">Science</li>
+                        <li onClick = {onOtherClick} className = "categories-items">Sports</li>
+                        <li onClick = {onOtherClick} className = "categories-items">Politics</li>
+                        <li onClick = {onOtherClick} className = "categories-items">Business & Finance</li>
+                        <li onClick = {onOtherClick} className = "categories-items">Travel</li>
+                    <Link to = "/articleslist/entertainment">
+                        <li onClick = {onOtherClick} className = "categories-items">Entertainment</li>
+                    </Link>
+                        <li onClick = {onOtherClick} className = "categories-items">Food & Drink</li>
+                        <li onClick = {onOtherClick} className = "categories-items">Health</li>
+                        <li onClick = {onOtherClick} className = "categories-items">Fashion</li>
                 </ul>
-                </div>
+            </div>
         </section>
     );
 };

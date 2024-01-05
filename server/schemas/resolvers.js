@@ -2,25 +2,32 @@ const { User } = require('../models/User');
 const { Articles } = require('../models/Articles');
 const { signToken, authMiddleware } = require('../utils/authmiddleware');
 const { AuthenticationError } = require('apollo-server');
+const { error } = require('server/router');
 
 const resolvers = {
     Query: {
         articles: async(parent, { categoryName }) => {
             try {
                 
+                console.log('Fetching articles...');
                 const categoryArticles = await Articles.find({ categoryName });
+
+                console.log(categoryArticles);
 
                 const categoryArticlesList = categoryArticles.map((article) => ({
                     title: article.title,
                     author: article.author,
+                    content: article.content,
                     publicationDate: article.publicationDate,
                     isFact: article.isFact,
                     isOpinion: article.isOpinion,
                     categoryName: article.categoryName,
                 }));
+                console.log(categoryArticles);
 
                 return categoryArticlesList;
             } catch (err) {
+                console.error(error);
                 throw new Error('Failed to fetch articles.');
             }
         },
