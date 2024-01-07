@@ -1,30 +1,29 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../style/Categories.css";
-import { useCategoriesAndStartContext } from "../utils/eventHandlersProvider";
+import { useCategoriesAndStartContext, GetIndividualCategory } from "../utils/eventHandlersProvider";
 
 const Categories = () => {
 
     const { onOtherClick } = useCategoriesAndStartContext();
+    const { onIndividualCategoryClick } = GetIndividualCategory();
 
     return (
         <section className = "categories">
             <div className = "categories-container">
                 <ul className = "categories-list">
-                    <Link to = "/articleslist/technology">
-                        <li onClick = {onOtherClick} className = "categories-items">Technology</li>
-                    </Link>
-                        <li onClick = {onOtherClick} className = "categories-items">Science</li>
-                        <li onClick = {onOtherClick} className = "categories-items">Sports</li>
-                        <li onClick = {onOtherClick} className = "categories-items">Politics</li>
-                        <li onClick = {onOtherClick} className = "categories-items">Business & Finance</li>
-                        <li onClick = {onOtherClick} className = "categories-items">Travel</li>
-                    <Link to = "/articleslist/entertainment">
-                        <li onClick = {onOtherClick} className = "categories-items">Entertainment</li>
-                    </Link>
-                        <li onClick = {onOtherClick} className = "categories-items">Food & Drink</li>
-                        <li onClick = {onOtherClick} className = "categories-items">Health</li>
-                        <li onClick = {onOtherClick} className = "categories-items">Fashion</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Technology</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Science</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Sports</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Politics</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Business & Finance</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Travel</li>
+                        <Link to = "/articleslist/categoryname">
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Entertainment</li>
+                        </Link>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Food & Drink</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Health</li>
+                            <li onClick = {(event) => { onOtherClick(); onIndividualCategoryClick(event); }} className = "categories-items">Fashion</li>
                 </ul>
             </div>
         </section>

@@ -1,7 +1,12 @@
 import React from "react";
 import "../style/ArticlesList.css";
+// import { GetIndividualCategory, RenderArticlesList } from "../utils/eventHandlersProvider";
 
 const ArticlesList = () => {
+
+    // const { showIndividualCategory } = GetIndividualCategory();
+    // const { handleArticlesList } = RenderArticlesList();
+
     return (
         <section className = "articles-view">
 

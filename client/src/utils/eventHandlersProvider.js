@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { REGISTER, LOGIN, CREATEARTICLE } from "../utils/mutations";
+import { QUERY_CATEGORIES, QUERY_ARTICLE } from "../utils/queries";
 import AuthService from "./auth";
 
 const CategoriesAndStartContext = createContext();
@@ -434,3 +435,66 @@ export const CreateArticleHandler = () => {
         onClickPublishButton,
     };
 };
+
+export const GetIndividualCategory = () => {
+    const [showIndividualCategory, setShowIndividualCategory] = useState("");
+
+    const onIndividualCategoryClick = (event) => {
+        console.log("Individual Category button clicked to get articles.");
+        const individualCategory = event.target.innerText;
+        console.log("Category Selected:", individualCategory);
+        setShowIndividualCategory(individualCategory);
+        handleArticlesList();
+    };
+
+    const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
+                variables: { categoryName: "Entertainment" },
+            });
+        
+            const handleArticlesList = () => {
+                console.log("handleArticlesList function called.");
+        
+                    if (loading) {
+                        console.log("Loading...");
+                    }
+        
+                    if (data) {
+                        console.log(data);
+                    }
+        
+                    if (error) {
+                        console.log(error);
+                    }
+            };
+
+    return {
+        showIndividualCategory,
+        onIndividualCategoryClick,
+    };
+};
+
+// export const RenderArticlesList = () => {
+//     const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
+//         variables: { categoryName: "Entertainment" },
+//     });
+
+//     const handleArticlesList = () => {
+//         console.log("handleArticlesList function called.");
+
+//             if (loading) {
+//                 console.log("Loading...");
+//             }
+
+//             if (data) {
+//                 console.log(data);
+//             }
+
+//             if (error) {
+//                 console.log(error);
+//             }
+//     };
+
+//     return {
+//         handleArticlesList
+//     }
+// };
