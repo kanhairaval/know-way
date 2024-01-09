@@ -53,7 +53,7 @@ function App() {
             <Route path="/" Component={Home}/>
             <Route path="/about" Component={About}/>
             {AuthService.loggedIn() && !AuthService.isTokenExpired() ? (<Route path="/createarticle" Component={CreateArticle}/>) : (<Route path="/" Component={Home}/>)}
-            <Route path="/articleslist/:categoryname" Component={ArticlesList}/>
+            <Route path="/articleslist" Component={ArticlesList}/>
             <Route path="/articleview" Component={ArticleView}/>
           </Routes>
           <Footer/>

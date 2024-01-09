@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../style/ArticlesList.css";
-// import { GetIndividualCategory, RenderArticlesList } from "../utils/eventHandlersProvider";
+import { useQuery } from "@apollo/client";
+import { QUERY_CATEGORIES } from "../utils/queries";
+import { GetIndividualCategory} from "../utils/eventHandlersProvider";
 
 const ArticlesList = () => {
 
-    // const { showIndividualCategory } = GetIndividualCategory();
-    // const { handleArticlesList } = RenderArticlesList();
+    const { showIndividualCategory } = GetIndividualCategory();
+
+    console.log(showIndividualCategory);
+
+    const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
+        variables: { categoryName: showIndividualCategory },
+    });
+    console.log(data);
 
     return (
         <section className = "articles-view">
