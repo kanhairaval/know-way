@@ -437,60 +437,25 @@ export const CreateArticleHandler = () => {
     };
 };
 
-export const GetIndividualCategory = () => {
-    const [showIndividualCategory, setShowIndividualCategory] = useState("");
+const GetIndividualCategoryContext = createContext();
 
-    const onIndividualCategoryClick = (event) => {
-        console.log("Individual Category button clicked to get articles.");
-        const individualCategory = event.target.innerText;
-        console.log(individualCategory);
-        if (individualCategory === "Technology") {
-            setShowIndividualCategory("Technology");
-        } else if (individualCategory === "Science") {
-            setShowIndividualCategory("Science");
-        } else if (individualCategory === "Sports") {
-            setShowIndividualCategory("Sports");
-        } else if (individualCategory === "Politics") {
-            setShowIndividualCategory("Politics");
-        } else if (individualCategory === "Business & Finance") {
-            setShowIndividualCategory("Business & Finance");
-        } else if (individualCategory === "Travel") {
-            setShowIndividualCategory("Travel");
-        } else if (individualCategory === "Entertainment") {
-            setShowIndividualCategory("Entertainment");
-        } else if (individualCategory === "Food & Drink") {
-            setShowIndividualCategory("Food & Drink");
-        } else if (individualCategory === "Health") {
-            setShowIndividualCategory("Health");
-        } else if (individualCategory === "Fashion") {
-            setShowIndividualCategory("Fashion");
-        } else {
-            setShowIndividualCategory("");
-        }
-        console.log("Category Selected: ", showIndividualCategory);
+export const useGetIndividualCategoryContext = () => {
+    return useContext(GetIndividualCategoryContext);
+};
 
-        // const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
-        //     variables: { categoryName: individualCategory },
-        // });
+export const IndividualCategoryProvider = ({ children }) => {
+    const [individualCategory, setIndividualCategory] = useState("");
 
-        // return { loading, error, data };
+    const onIndividualCategoryClick = (e) => {
+        console.log("Individual Category clicked.");
+        const categoryClicked = e.target.innerText;
+        setIndividualCategory(categoryClicked);
+        console.log(categoryClicked);
     };
-            // console.log("Category Selected: ", showIndividualCategory);
 
-            // // Perform the GraphQL query using useQuery
-            // const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
-            //     variables: { categoryName: showIndividualCategory },
-            // });
-
-            // if (loading) console.log("Loading...");
-            // if (error) console.log("Error:", error.message);
-            
-            // // Process the data as needed
-            // const articles = data;
-            // console.log("Articles:", articles);
-
-    return {
-        showIndividualCategory,
-        onIndividualCategoryClick,
-    };
+    return (
+        <GetIndividualCategoryContext.Provider value = {{ individualCategory, setIndividualCategory, onIndividualCategoryClick }}>
+            {children}
+        </GetIndividualCategoryContext.Provider>
+    );
 };

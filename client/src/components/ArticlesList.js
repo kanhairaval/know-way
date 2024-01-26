@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../style/ArticlesList.css";
+import { useGetIndividualCategoryContext } from "../utils/eventHandlersProvider";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../utils/queries";
-import { GetIndividualCategory} from "../utils/eventHandlersProvider";
 
 const ArticlesList = () => {
 
-    const { showIndividualCategory } = GetIndividualCategory();
-
-    console.log(showIndividualCategory);
-
+    const { individualCategory } = useGetIndividualCategoryContext();
+    console.log(individualCategory);
     const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
-        variables: { categoryName: showIndividualCategory },
+        variables: { categoryName: individualCategory },
     });
     console.log(data);
 
