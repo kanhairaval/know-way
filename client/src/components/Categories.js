@@ -10,40 +10,21 @@ const Categories = () => {
     const { onOtherClick } = useCategoriesAndStartContext();
     const { onIndividualCategoryClick } = useGetIndividualCategoryContext();
 
+    const createCategoryList = (arrayOfCategories) => {
+        const categoryList = arrayOfCategories.map((category, index) => (
+            <li key = {index} onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">
+                <Link to="/articleslist">{category}</Link>
+            </li>
+        ));
+    
+        return categoryList;
+    };
+
     return (
         <section className = "categories">
             <div className = "categories-container">
                 <ul className = "categories-list">
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Technology</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Science</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Sports</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Politics</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Business & Finance</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Travel</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Entertainment</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Food & Drink</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Health</li>
-                    </Link>
-                    <Link to="/articleslist">
-                        <li onClick = {(e) => { onOtherClick(); onIndividualCategoryClick(e);}} className = "categories-items">Fashion</li>
-                    </Link>
+                    {createCategoryList(arrayOfCategories)}
                 </ul>
             </div>
         </section>
