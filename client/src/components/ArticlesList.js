@@ -1,12 +1,15 @@
 import React from "react";
 import "../style/ArticlesList.css";
+import { Link } from 'react-router-dom';
 import { useGetIndividualCategoryContext } from "../utils/eventHandlersProvider";
 import { useQuery } from "@apollo/client";
 import { QUERY_CATEGORIES } from "../utils/queries";
+import { useGetIndividualArticleContext } from "../utils/eventHandlersProvider";
 
 const ArticlesList = () => {
 
     const { individualCategory } = useGetIndividualCategoryContext();
+    const { onIndividualArticleClick } = useGetIndividualArticleContext();
     console.log(individualCategory);
     const { loading, error, data } = useQuery(QUERY_CATEGORIES, {
         variables: { categoryName: individualCategory },
@@ -35,7 +38,9 @@ const ArticlesList = () => {
     
         const articlesList = data.articles.map((article, index) => (
             <div key={index} className="articles-list">
-                <h2 id="article-title">{article.title}</h2>
+                <Link to="/articleview">
+                <h2 onClick = {(e) => { onIndividualArticleClick(e);}} id="article-title">{article.title}</h2>
+                </Link>
                 <div className="details">
                     <h4>{article.categoryName}</h4>
                     <h4>{article.author}</h4>

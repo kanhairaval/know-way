@@ -19,6 +19,7 @@ import { RenderingContactUsModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingCareersModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingSuccessfulRegistrationModal } from "./utils/eventHandlersProvider";
 import { IndividualCategoryProvider } from "./utils/eventHandlersProvider";
+import { IndividualArticleProvider } from "./utils/eventHandlersProvider";
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -50,6 +51,7 @@ function App() {
         <RenderingCareersModalProvider>
         <RenderingSuccessfulRegistrationModal>
         <IndividualCategoryProvider>
+        <IndividualArticleProvider>
           {AuthService.loggedIn() && !AuthService.isTokenExpired() ? <LoggedInNavBar/> : <NavBar/>}
           <Routes>
             <Route path="/" Component={Home}/>
@@ -59,6 +61,7 @@ function App() {
             <Route path="/articleview" Component={ArticleView}/>
           </Routes>
           <Footer/>
+        </IndividualArticleProvider>
         </IndividualCategoryProvider>
         </RenderingSuccessfulRegistrationModal>
         </RenderingCareersModalProvider>

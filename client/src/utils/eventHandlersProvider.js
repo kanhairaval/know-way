@@ -459,3 +459,26 @@ export const IndividualCategoryProvider = ({ children }) => {
         </GetIndividualCategoryContext.Provider>
     );
 };
+
+const GetIndividualArticleContext = createContext();
+
+export const useGetIndividualArticleContext = () => {
+    return useContext(GetIndividualArticleContext);
+};
+
+export const IndividualArticleProvider = ({ children }) => {
+    const [individualArticle, setIndividualArticle] = useState("");
+
+    const onIndividualArticleClick = (e) => {
+        console.log("Individual Article clicked.");
+        const articleClicked = e.target.innerText;
+        setIndividualArticle(articleClicked);
+        console.log(articleClicked);
+    };
+
+    return (
+        <GetIndividualArticleContext.Provider value = {{ individualArticle, setIndividualArticle, onIndividualArticleClick }}>
+            {children}
+        </GetIndividualArticleContext.Provider>
+    );
+};
