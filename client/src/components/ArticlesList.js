@@ -14,32 +14,39 @@ const ArticlesList = () => {
 
     console.log(data);
 
-    if (!data) {
-        console.log("No data to be retrieved.");
-    } else {
-        console.log(data.articles);
-        console.log(data.articles[0].title);
-        console.log(data.articles[0].categoryName);
-        console.log(data.articles.author);
-        console.log(data.articles[0].publicationDate);
-    }
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const seconds = date.getTime() / 1000;
+        const newDate = new Date(0);
+        newDate.setUTCSeconds(seconds);
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            timeZone: 'UTC'
+        };
+        return newDate.toLocaleDateString('en-US', options);
+    };
 
-    const arrayofArticles = [data];
-    const createArticlesList = (arrayofArticles) => {
-        const articlesList = arrayofArticles.map((data, index) => (
+    const createArticlesList = (data) => {
+        if (!data || !data.articles) {
+            return null;
+        }
+    
+        const articlesList = data.articles.map((article, index) => (
             <div key={index} className="articles-list">
-                <h2 id="article-title">{data.article.title}</h2>
+                <h2 id="article-title">{article.title}</h2>
                 <div className="details">
-                    <h4>{data.article.categoryName}</h4>
-                    <h4>{data.article.author}</h4>
-                    <h4>{data.article.publicationDate}</h4>
+                    <h4>{article.categoryName}</h4>
+                    <h4>{article.author}</h4>
+                    <h4>{formatDate(article.publicationDate)}</h4>
                 </div>
-                <p id="article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
+                <p id="article-info">{article.content.substring(0, 235)}....</p>
             </div>
         ));
-
+    
         return articlesList;
-    };
+    };    
 
     return (
         <section className = "articles-view">
@@ -48,47 +55,8 @@ const ArticlesList = () => {
                 <h1 id = "category-title">{individualCategory}</h1>
             </div>
 
-            {createArticlesList(arrayofArticles)}
+            {createArticlesList(data)}
 
-            {/* <div className="articles-list">
-                <h2 id = "article-title">Will AI lead to terminator?</h2>
-                <div className = "details">
-                <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
-                </div>
-                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
-            </div>
-
-            <div className="articles-list">
-                <h2>Article Title</h2>
-                <div className = "details">
-                <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
-                </div>
-                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
-            </div>
-
-            <div className="articles-list">
-                <h2>Article Title</h2>
-                <div className = "details">
-                <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
-                </div>
-                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
-            </div>
-
-            <div className="articles-list">
-                <h2>Article Title</h2>
-                <div className = "details">
-                <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
-                </div>
-                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
-            </div>
-
-            <div className="articles-list">
-                <h2>Article Title</h2>
-                <div className = "details">
-                <h4>Category</h4> <h4>Username</h4> <h4>Date</h4>
-                </div>
-                <p id = "article-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis....</p>
-            </div> */}
         </section>
     );
 };

@@ -9,6 +9,7 @@ query getArticles($categoryName: String!) {
       isFact
       isOpinion
       categoryName
+      content
     }
   }
   `;
@@ -23,6 +24,7 @@ query getArticle($title: String!) {
     isOpinion
     articleImage
     categoryName
+    content
   }
 }
 `;
