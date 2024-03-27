@@ -18,17 +18,14 @@ const ArticlesList = () => {
     console.log(data);
 
     const formatDate = (timestamp) => {
-        const date = new Date(timestamp);
-        const seconds = date.getTime() / 1000;
-        const newDate = new Date(0);
-        newDate.setUTCSeconds(seconds);
+        const date = new Date(parseInt(timestamp));
         const options = { 
             year: 'numeric', 
-            month: 'long', 
+            month: 'short', 
             day: 'numeric',
             timeZone: 'UTC'
         };
-        return newDate.toLocaleDateString('en-US', options);
+        return date.toLocaleDateString('en-US', options);
     };
 
     const createArticlesList = (data) => {
