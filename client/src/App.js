@@ -18,6 +18,7 @@ import { RenderingLoginModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingContactUsModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingCareersModalProvider } from "./utils/eventHandlersProvider";
 import { RenderingSuccessfulRegistrationModal } from "./utils/eventHandlersProvider";
+import { RenderingSuccessfulPublishModal } from "./utils/eventHandlersProvider";
 import { IndividualCategoryProvider } from "./utils/eventHandlersProvider";
 import { IndividualArticleProvider } from "./utils/eventHandlersProvider";
 
@@ -50,6 +51,7 @@ function App() {
         <RenderingContactUsModalProvider>
         <RenderingCareersModalProvider>
         <RenderingSuccessfulRegistrationModal>
+        <RenderingSuccessfulPublishModal>
         <IndividualCategoryProvider>
         <IndividualArticleProvider>
           {AuthService.loggedIn() && !AuthService.isTokenExpired() ? <LoggedInNavBar/> : <NavBar/>}
@@ -63,6 +65,7 @@ function App() {
           <Footer/>
         </IndividualArticleProvider>
         </IndividualCategoryProvider>
+        </RenderingSuccessfulPublishModal>
         </RenderingSuccessfulRegistrationModal>
         </RenderingCareersModalProvider>
         </RenderingContactUsModalProvider>

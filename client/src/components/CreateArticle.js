@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../style/CreateArticle.css";
 import { CreateArticleHandler } from "../utils/eventHandlersProvider";
+import { useSuccessfulPublishModalContext } from "../utils/eventHandlersProvider";
+import SuccessPublish from "./SuccessPublish";
 
 function CreateArticle() {
 
     const arrayOfCategories = ["Technology", "Science", "Sports", "Politics", "Business & Finance", "Travel", "Entertainment", "Food & Drink", "Health", "Fashion"];
-    const { opinionButton, onOpinionButtonClick, factButton, onFactButtonClick, categoriesButton, onCategoriesButtonClick, articleTitleText, handleArticleTitleInput, articleBodyText, handleArticleBody, articleImage, handleArticleImage, onClickPublishButton } = CreateArticleHandler();
+    const { successfulPublish, opinionButton, onOpinionButtonClick, factButton, onFactButtonClick, categoriesButton, onCategoriesButtonClick, articleTitleText, handleArticleTitleInput, articleBodyText, handleArticleBody, articleImage, handleArticleImage, onClickPublishButton } = CreateArticleHandler();
+    const { openSuccessfulPublish } = useSuccessfulPublishModalContext();
 
     const createButtons = (arrayOfCategories) => {
         const buttons = arrayOfCategories.map((category, index) => (
@@ -14,6 +17,14 @@ function CreateArticle() {
     
         return buttons;
     };
+
+    console.log(successfulPublish);
+
+    useEffect(() => {
+        if (successfulPublish) {
+            openSuccessfulPublish();
+        }
+    }, [successfulPublish, openSuccessfulPublish]);
 
     return (
         <section className = "create-article">
@@ -52,6 +63,7 @@ function CreateArticle() {
             {/* </div> */}
 
             <button onClick = {onClickPublishButton} className = "publish-btn">Publish</button>
+            {successfulPublish && <SuccessPublish />}
         </section>
     );
 };

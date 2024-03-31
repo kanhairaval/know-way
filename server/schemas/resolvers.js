@@ -82,21 +82,25 @@ const resolvers = {
         },
 
         createArticle: async (parent, { title, categoryName, content, author, isFact, isOpinion, articleImage }, context) => {
-
             if (context.user) {
-            try {
-                const newArticle = await Articles.create({ title, categoryName, content, author, isFact, isOpinion, articleImage });
-                console.log(newArticle);
-                return { message: "Article published successfully.", success: true };
-            } catch (err) {
-                console.error(err);
-                return { message: "Article could not be published.", success: false };
-                throw new Error('Failed to create an article.');
+                try {
+                    const newArticle = await Articles.create({ title, categoryName, content, author, isFact, isOpinion, articleImage });
+                    console.log(newArticle);
+        
+                    if (newArticle) {
+                        console.log("Article published successfully.");
+                        return { message: "Article published successfully.", success: true };
+                    } else {
+                        return { message: "Article could not be published.", success: false };
+                    }
+                } catch (err) {
+                    console.error(err);
+                    return { message: "Error creating article.", success: false };
+                }
+            } else {
+                throw new AuthenticationError('Authentication required to create article.');
             }
-        } else {
-            throw new AuthenticationError('Authentication required to create article.')
-        }
-        },
+        },        
 
         updateArticle: async (parent, { _id, title, content, siteSources, articleImage }, context) => {
 

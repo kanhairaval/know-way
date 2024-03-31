@@ -407,6 +407,7 @@ export const CreateArticleHandler = () => {
 
 
             if (data.createArticle.success) {
+                console.log("Article published successfully.");
                 setSuccessfulPublish(true);
             }
 
@@ -433,8 +434,35 @@ export const CreateArticleHandler = () => {
         handleArticleImage,
         handleUserPublish,
         successfulPublish,
+        setSuccessfulPublish,
         onClickPublishButton,
     };
+};
+
+const SuccessfulPublishModalContext = createContext();
+
+export const useSuccessfulPublishModalContext = () => {
+    return useContext(SuccessfulPublishModalContext);
+};
+
+export const RenderingSuccessfulPublishModal = ({ children }) => {
+    const [showSuccessfulPublishModal, setShowSuccessfulPublishModal] = useState(false);
+
+    const openSuccessfulPublish = () => {
+        console.log("open success function called");
+        setShowSuccessfulPublishModal(true);
+    };
+
+    const onClickCloseSuccessfulPublishModal = () => {
+        console.log("Close X clicked for closing successful publish modal")
+        setShowSuccessfulPublishModal(false);
+    };
+
+    return (
+        <SuccessfulPublishModalContext.Provider value = {{ showSuccessfulPublishModal, onClickCloseSuccessfulPublishModal, openSuccessfulPublish }}>
+            {children}
+        </SuccessfulPublishModalContext.Provider>
+    );
 };
 
 const GetIndividualCategoryContext = createContext();

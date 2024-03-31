@@ -32,12 +32,9 @@ const ArticleView = () => {
         console.log(data.article.title);
         console.log(data.article.content);
     
-        const { title, author, publicationDate, content, isOpinion, isFact, articleImage } = data.article;
+        const { title, author, publicationDate, content, categoryName, isOpinion, isFact, articleImage } = data.article;
         let articleTag = isOpinion ? "Opinion" : "Fact";
-        const formattedContent = content
-        .split("\n\n")
-        .map((paragraph, index) => `<p key=${index}>${paragraph}</p>`)
-        .join("");
+        const formattedContent = content.replace(/\\n\\n/g, "<br/>").replace(/\\n/g, "<br/>");
 
         const formattedDate = formatDate(publicationDate);
         return (
@@ -49,15 +46,14 @@ const ArticleView = () => {
                             <h4 className="title-details" id="fact-opinion">{articleTag}</h4>
                         </div>
                         <div className="article-header-sub-div-2">
-                            <h4>Sports</h4> <h4>{author}</h4> <h4>{formattedDate}</h4>
+                            <h4>{categoryName}</h4> <h4>{author}</h4> <h4>{formattedDate}</h4>
                         </div>
                     </div>
                     <div className="article-image-div">
                         <img id="article-image" alt="article-image" src={articleImage}/>
                     </div>
                 </div>
-                <div className="article-content">
-                    {formattedContent}
+                <div className="article-content" dangerouslySetInnerHTML={{__html: formattedContent}}>
                 </div>
             </section>
         );

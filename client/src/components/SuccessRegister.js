@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../style/SuccessRegister.css";
 import { useLoginModalContext } from "../utils/eventHandlersProvider";
 import { useSuccessfulRegisterationModalContext } from "../utils/eventHandlersProvider";
